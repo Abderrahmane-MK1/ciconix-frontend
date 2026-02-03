@@ -3,6 +3,7 @@ import Hero_sec from './Components/Hero_sec'
 import About_sec from './Components/about_sec'
 import Details from './Components/Details'
 import Reg_form from './Components/reg_form'
+import Footer from './Components/Footer'
 
 
 const Register = () => {
@@ -12,6 +13,7 @@ const Register = () => {
         <About_sec/>
         <Details/>
         <Reg_form/>
+        <Footer/>
     </div>
   )
 }

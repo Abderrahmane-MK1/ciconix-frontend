@@ -172,6 +172,7 @@ input:focus, select:focus, textarea:focus {
   border-color: rgba(249, 228, 192, 0.15);
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 0 3px rgba(113, 16, 22, 0.1);
+  color: black;
 }
 
 input::placeholder, textarea::placeholder {
