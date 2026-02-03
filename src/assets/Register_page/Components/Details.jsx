@@ -11,7 +11,7 @@ const Details = () => {
               <div className="details-grid">
                 <div className="detail-card">
                     <div className="detail-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(113, 16, 22, 0.43)" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="16" y1="2" x2="16" y2="6"></line>
                             <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -26,7 +26,7 @@ const Details = () => {
                 </div>
                 <div className="detail-card">
                     <div className="detail-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(113, 16, 22, 0.43)" stroke-width="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
@@ -38,7 +38,7 @@ const Details = () => {
                 </div>
                 <div className="detail-card">
                     <div className="detail-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(113, 16, 22, 0.43)" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -53,7 +53,7 @@ const Details = () => {
                 </div>
                 <div className="detail-card">
                     <div className="detail-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(113, 16, 22, 0.43)" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
@@ -76,7 +76,7 @@ const Details = () => {
                    <div className="structure-card">
                        <div className='card-name'>
                             <div className="structure-icon workshop">
-                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F9E4C0" stroke-width="2">
+                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(249, 228, 192, 1)" stroke-width="2">
                                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                              </svg>
@@ -92,11 +92,11 @@ const Details = () => {
                            <li>Networking opportunities</li>
                       </ul>
                    </div>
-                   <div className="structure-card">
+                   <div className="structure-card ctfpass">
                         <span className="recommended-badge">Recommended</span>
                         <div className='card-name'>
                             <div className="structure-icon ctf">
-                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F9E4C0" stroke-width="2">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(249, 228, 192, 1)" stroke-width="2">
                                 <polygon
                                   points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
                                 </polygon>
@@ -129,7 +129,7 @@ const Details = () => {
                         <div className="timeline-card">
                             <div className='card-title'>
                                 <div className="timeline-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 1)" stroke-width="2">
                                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                                     </svg>
@@ -145,7 +145,7 @@ const Details = () => {
                         <div className="timeline-card">
                             <div className='card-title'>
                                 <div className="timeline-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 1)" stroke-width="2">
                                         <polyline points="16 18 22 12 16 6"></polyline>
                                         <polyline points="8 6 2 12 8 18"></polyline>
                                     </svg>

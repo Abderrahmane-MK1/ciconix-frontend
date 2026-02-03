@@ -3,7 +3,7 @@
     padding-top: 0;
     padding-left: 100px;
     padding-right: 100px;
-    background: white;
+    background: rgba(36, 14, 16);
 }
 
 .section-title {
@@ -12,7 +12,7 @@
     font-weight: 400;
     line-height: 1.2;
     text-align: center;
-    color: #711016 ;
+    color: rgba(249, 228, 192, 1) ;
     margin-bottom: 16px;
     letter-spacing: -1px;
 }
@@ -23,7 +23,7 @@
     font-weight: 400;
     line-height: 28px;
     text-align: center;
-    color: #711016;
+    color: rgba(249, 228, 192, 1);
     margin-bottom: 48px;
 }
 
@@ -39,8 +39,8 @@
     align-items: flex-start;
     gap: 16px;
     padding: 34px;
-    background: white;
-    border: 2px solid #F9E4C0;
+    background: rgba(113, 16, 22, 0.43);
+    border: 2px solid rgba(203, 41, 51, 1);
     border-radius: 16px;
     box-shadow:  0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
     text-align: left;
@@ -50,7 +50,7 @@
     flex-shrink: 0;
     width: 48px;
     height: 48px;
-    background: #711016;
+    background: rgba(249, 228, 192, 1);
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -67,21 +67,21 @@
     font-size: 22.7px;
     font-weight: 400;
     line-height: 32px;
-    color: #240E10;
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
 }
 
 .detail-value {
     font-size: 17.3px;
     line-height: 28px;
-    color:  #711016;
+    color:  rgba(249, 228, 192, 1);
     margin-bottom: 4px;
 }
 
 .detail-note {
     font-size: 13px;
     line-height: 20px;
-    color: rgba(36, 14, 16, 0.7);
+    color:rgba(255, 255, 255, 0.7);
 }
 
 
@@ -89,7 +89,7 @@
     padding-top: 0;
     padding-left: 100px;
     padding-right: 100px;
-    background: white;
+    background:rgba(36, 14, 16);
     margin-top: -100px;
 }
 
@@ -104,10 +104,14 @@
 .structure-card {
     position: relative;
     padding: 40px;
-    border: 2px solid #F9E4C0;
+    border: 2px solid rgba(203, 41, 51, 1);
     border-radius: 22px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: white;
+    background: rgba(36, 14, 16);
+}
+
+.structure-card.ctfpass{
+    background: rgba(113, 16, 22, 0.43) ;
 }
 
 .card-name {
@@ -132,7 +136,7 @@
 .structure-icon {
     width: 66px;
     height: 66px;
-    background:  #711016;
+    background:  rgba(113, 16, 22, 1);
     border-radius: 11px;
     display: flex;
     align-items: center;
@@ -149,14 +153,14 @@
     font-family: 'Inter', sans-serif;;
     font-size: 35px;
     font-weight: 600;
-    color: #711016;
+    color: rgba(249, 228, 192, 1);
     margin-bottom: 12px;
 }
 
 .structure-desc {
     font-size: 16px;
     line-height: 24px;
-    color: rgba(36, 14, 16, 0.7);
+    color:rgba(255, 255, 255, 0.7);
     margin-bottom: 24px;
 }
 
@@ -171,7 +175,7 @@
     padding-left: 28px;
     font-size: 15px;
     line-height: 32px;
-    color: #240E10;
+    color: rgba(255, 255, 255, 1);
 }
 
 .structure-features li::before {
@@ -189,7 +193,7 @@
     padding-top: 0;
     padding-left: 100px;
     padding-right: 100px;
-    background: white;
+    background:  rgba(36, 14, 16);
 }
 
 .timeline-container {
@@ -247,10 +251,10 @@
 }
 
 .timeline-card {
-    background: rgba(249, 228, 192, 0.4);
-    border: 2px solid #F9E4C0;
+    background: rgba(113, 16, 22, 0.43);
+    border: 2px solid rgba(113, 16, 22, 1);
     border-radius: 16px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);;
+    box-shadow: 0px 4px 6px -4px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);;
     padding: 20px;
     width: 400px;
 }
@@ -262,7 +266,7 @@
 .timeline-icon {
     width: 36px;
     height: 36px;
-    background: #711016;
+    background: rgba(113, 16, 22, 1);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -275,13 +279,13 @@
     font-size: 22.7px;
     font-weight: 400;
     line-height: 32px;
-    color: #240E10;
+    color: rgba(249, 228, 192, 1);
 }
 
 .timeline-date {
     font-size: 15px;
     line-height: 24px;
-    color: #711016;  
+    color: rgba(249, 228, 192, 1);  
 }
 
 .timeline-item.right .timeline-date{
@@ -291,6 +295,6 @@
 .timeline-desc {
     font-size: 14.8px;
     line-height: 24px;
-    color: rgba(36, 14, 16, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     text-align: left;
 }
