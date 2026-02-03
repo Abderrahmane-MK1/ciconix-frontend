@@ -8,7 +8,7 @@ import Footer from './Components/Footer'
 
 const Register = () => {
   return (
-    <div className="register-wrapper">
+    <div className="register-wrapper" >
         <Hero_sec/>
         <About_sec/>
         <Details/>
