@@ -74,3 +74,90 @@
     color:rgba(255, 255, 255, 0.7);
     font-weight: 600;
 }
+
+
+
+
+
+
+@media (max-width: 480px) {
+  /* mobile styles */
+ #about_sec {
+    position: relative;
+    background: rgba(36, 14, 16);
+    padding-top: 0px; 
+    padding-bottom: 0px;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+.about-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 600px; 
+    margin-top: 0px;
+    background: linear-gradient(
+    180deg,
+    rgba(36, 14, 16, 0.09) 0%,      /* Very transparent at top */
+    rgba(36, 14, 16, 0.3) 25%,      /* Getting darker */
+    rgba(36, 14, 16, 0.7) 50%,      /* Midpoint - fairly dark */
+    rgba(36, 14, 16, 1) 75%,        /* Fully dark */
+    rgba(36, 14, 16, 0.01) 100%     /* Back to transparent at bottom */
+  );
+    z-index: 0;
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    padding: 100px 20px;
+}
+
+
+.container .section-title {
+    font-family: 'ImFellEnglish', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: rgba(249, 228, 192, 1);
+    margin-bottom: 40px;
+    text-align: center;
+    padding-top: 70px; 
+}
+
+.about-content {
+    background: rgba(113, 16, 22, 0.38); 
+    border: 1px solid rgba(203, 41, 51, 1);
+    border-radius: 24px;
+    box-shadow: 
+    0 8px 10px -6px rgba(0, 0, 0, 0.1),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    padding: 30px 30px;
+    max-width: 304px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400; 
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.about-content p strong {
+    color:rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+}

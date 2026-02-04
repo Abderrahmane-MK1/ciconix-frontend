@@ -93,3 +93,112 @@
     line-height: 24px;
     color: rgba(249, 228, 192, 0.7);
 }
+
+@media (max-width: 480px) {
+  /* mobile styles */
+  #hero_sec {
+    position: relative;
+    min-height: 100vh; 
+    display: flex;
+    width: 402px;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/hero-img.jpg') center center / cover no-repeat;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#hero-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg,
+            rgba(36, 14, 16, 0.8) 10%,
+            rgba(68, 15, 19, 0.6)70%,
+            rgba(36, 14, 16, 1) 100%);
+    z-index: 1;
+}
+.cic_logo {
+    position: absolute;
+    left: 0px;
+    width: 114px;
+    height: 62px;
+    z-index: 10; 
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0px 0px 20px;
+    margin-top: 0px;
+  
+    z-index: 3;
+}
+
+.hero-logo{
+    width: 293px;
+    height: 260px;
+    margin-top: 21px;
+    margin-bottom: -50px;
+    margin-left: -15px;
+}
+
+.hero-title{
+    font-family: 'ImFellEnglish' , serif;
+    font-size: 37px;
+    font-weight: 400;
+    line-height: 96px;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: -2.4px;
+    margin-top: -12px;
+    margin-bottom: -10px;
+    margin-left: -20px;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(249, 228, 192, 1);
+    margin-bottom: 30px;
+   margin-top: -20px;
+    margin-left: -10px;
+}
+
+.hero-btn{
+    width: 134px;
+    height: 27px;
+    border-radius: 9999px; 
+    border: none;
+    background-color: rgba(249, 228, 192, 1);
+    padding: 0px;
+    color: rgba(36, 14, 16, 1);
+    font-family: 'Inter', sans-serif;
+    font-size:  14px;
+    font-weight: 600;
+    line-height: 28px;
+     margin-left: -10px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 15px 25px -3px rgba(0, 0, 0, 0.15);
+}
+
+.date {
+    margin-top: 32px;
+    margin-left: -10px;
+    font-size: 15.4px;
+    line-height: 24px;
+    color: rgba(249, 228, 192, 0.7);
+}
+}
+
+
+
