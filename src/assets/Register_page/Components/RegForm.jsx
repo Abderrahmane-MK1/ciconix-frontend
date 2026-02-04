@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import './reg_form.css'
+import './Reg_Form.css'
 
-const reg_form = () => {
+const RegForm = () => {
   const [selectedPass, setSelectedPass] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' });
@@ -38,7 +38,6 @@ const reg_form = () => {
     { value: 'OSINT', label: 'OSINT' },
     { value: 'Web Development', label: 'Web Development' },
     { value: 'Programming', label: 'Programming' },
-    { value: 'Problem Solving', label: 'Problem Solving' },
     { value: 'Other', label: 'Other' },
   ];
 
@@ -49,6 +48,7 @@ const reg_form = () => {
     school: '',
     year: '',
     student_id: '',
+    profile_link: '',
     email: '',
     discord_id: ''
   });
@@ -139,7 +139,7 @@ const reg_form = () => {
       const requiredinfos = [`firstname${i}`, `lastname${i}`, `school${i}`, `year${i}`, `student_id${i}`, `skills${i}`, `email${i}`, `discord_id${i}`];
       for (const info of requiredinfos) {
         if (!ctfForm[info]?.trim()) {
-          setSubmitMessage({ type: 'error', text: `Please fill in ${info.replace(/\d/, '')} for member ${i}` });
+          setSubmitMessage({ type: 'error', text: `Please fill in ${info.replace(/\d/, '').replace('_', ' ')} for member ${i}` });
 
           setTimeout(() => {
               setSubmitMessage({ type: '', text: '' });
@@ -232,6 +232,7 @@ const reg_form = () => {
         student_id: workshopForm.student_id.toUpperCase(),
         email: workshopForm.email.toLowerCase(),
         discord_id: workshopForm.discord_id,
+        profile_link: workshopForm.profile_link.trim() || null,
         year: parseInt(workshopForm.year)
       };
       
@@ -257,6 +258,7 @@ const reg_form = () => {
         school: '',
         year: '',
         student_id: '',
+        profile_link: '',
         email: '',
         discord_id: ''
       });
@@ -309,6 +311,7 @@ const reg_form = () => {
       formData[`school${i}`] = ctfForm[`school${i}`];
       formData[`year${i}`] = parseInt(ctfForm[`year${i}`]);
       formData[`student_id${i}`] = ctfForm[`student_id${i}`].toUpperCase().trim();
+      formData[`skills${i}`] = ctfForm[`skills${i}`];
       formData[`profile_link${i}`] = ctfForm[`profile_link${i}`]?.trim() || null;
       formData[`email${i}`] = ctfForm[`email${i}`].toLowerCase().trim();
       formData[`discord_id${i}`] = ctfForm[`discord_id${i}`].trim();
@@ -503,6 +506,7 @@ const reg_form = () => {
                   <label htmlFor='student_id'>Student ID *</label>
                   <input
                     type='text'
+                    pattern='[0-9]{8}'
                     id='student_id'
                     name='student_id'
                     value={workshopForm.student_id}
@@ -528,18 +532,33 @@ const reg_form = () => {
                 </div>
               </div>
 
-              <div className='form-group'>
-                <label htmlFor='discord_id'>Discord ID *</label>
-                <input
-                  type='text'
-                  id='discord_id'
-                  name='discord_id'
-                  value={workshopForm.discord_id}
-                  onChange={handleWorkshopChange}
-                  required
-                  placeholder='username#1234'
-                  disabled={isSubmitting}
-                />
+              <div className='form-row'>
+                <div className='form-group'>
+                  <label htmlFor='discord_id'>Discord ID *</label>
+                  <input
+                    type='text'
+                    id='discord_id'
+                    name='discord_id'
+                    value={workshopForm.discord_id}
+                    onChange={handleWorkshopChange}
+                    required
+                    placeholder='username#1234'
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='profile_link'>Profile Link (Optional)</label>
+                  <input
+                    type='url'
+                    id='profile_link'
+                    name='profile_link'
+                    value={workshopForm.profile_link}
+                    onChange={handleWorkshopChange}
+                    placeholder='GitHub, LinkedIn, etc.'
+                    disabled={isSubmitting}
+                  />
+                </div>
               </div>
             </div>
 
@@ -677,6 +696,7 @@ const reg_form = () => {
                     <label htmlFor={`student_id${memberNum}`}>Student ID *</label>
                     <input
                       type='text'
+                      pattern='[0-9]{8}'
                       id={`student_id${memberNum}`}
                       name={`student_id${memberNum}`}
                       value={ctfForm[`student_id${memberNum}`]}
@@ -736,6 +756,19 @@ const reg_form = () => {
                     />
                   </div>
                 </div>
+
+                <div className='form-group'>
+                  <label htmlFor={`profile_link${memberNum}`}>Profile Link (Optional)</label>
+                  <input
+                    type='url'
+                    id={`profile_link${memberNum}`}
+                    name={`profile_link${memberNum}`}
+                    value={ctfForm[`profile_link${memberNum}`]}
+                    onChange={handleCtfChange}
+                    placeholder='GitHub, TryHackMe, CTFTime, etc.'
+                    disabled={isSubmitting}
+                  />
+                </div>
               </div>
             ))}
 
@@ -764,4 +797,4 @@ const reg_form = () => {
   )
 }
 
-export default reg_form
+export default RegForm

@@ -8,32 +8,13 @@
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.5;
-  color-scheme: light dark;
+  color-scheme: only dark; 
+  background-color: rgba(36, 14, 16);
 }
 
 body {
   min-height: 100vh;
-  background-color: #020617; 
+  background-color:rgba(36, 14, 16); 
   color: #e5e7eb;
-}
-
-/* regular */
-@font-face {
-  font-family: 'ImFellEnglish';
-  src: url('/fonts/ImFellEnglish-Regular.woff2') format('woff2'),
-       url('/fonts/ImFellEnglish-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style:normal;
-  font-display: swap;
-}
-
-/* italic */
-@font-face {
-  font-family: 'ImFellEnglish';
-  src: url('/fonts/ImFellEnglish-Italic.woff2') format('woff2'),
-       url('/fonts/ImFellEnglish-Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
 }
 
