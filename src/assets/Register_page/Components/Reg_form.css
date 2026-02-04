@@ -364,7 +364,7 @@ select {
 
 #register {
   position: relative;
-  padding: 60px 0;
+  padding: 60px 0px;
   background:  rgba(36, 14, 16);
   z-index: 1;
 }
@@ -372,6 +372,8 @@ select {
 .register-container {
   margin: 0 auto;
   padding: 0 20px;
+  width: 370px;
+  margin-left: 10px;
 }
 
 

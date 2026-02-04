@@ -235,7 +235,7 @@ const reg_form = () => {
         year: parseInt(workshopForm.year)
       };
       
-      const response = await axios.post('/api/basic-pass-registrations/', formData, {
+      const response = await axios.post('http://localhost:8000/api/registration/basic-pass/', formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -289,93 +289,103 @@ const reg_form = () => {
     }
   };
 
-  const handleCtfSubmit = async (e) => {
-    e.preventDefault();
+ const handleCtfSubmit = async (e) => {
+  e.preventDefault();
+  
+  if (!validateCtfForm()) return;
+  
+  setIsSubmitting(true);
+  setSubmitMessage({ type: '', text: '' });
+  
+  try {
+    const formData = { 
+      team_name: ctfForm.team_name 
+    };
     
-    if (!validateCtfForm()) return;
+    // Add all 5 members
+    for (let i = 1; i <= 5; i++) {
+      formData[`firstname${i}`] = ctfForm[`firstname${i}`].trim();
+      formData[`lastname${i}`] = ctfForm[`lastname${i}`].trim();
+      formData[`school${i}`] = ctfForm[`school${i}`];
+      formData[`year${i}`] = parseInt(ctfForm[`year${i}`]);
+      formData[`student_id${i}`] = ctfForm[`student_id${i}`].toUpperCase().trim();
+      formData[`profile_link${i}`] = ctfForm[`profile_link${i}`]?.trim() || null;
+      formData[`email${i}`] = ctfForm[`email${i}`].toLowerCase().trim();
+      formData[`discord_id${i}`] = ctfForm[`discord_id${i}`].trim();
+    }
     
-    setIsSubmitting(true);
-    setSubmitMessage({ type: '', text: '' });
+    console.log('Sending to Django:', JSON.stringify(formData, null, 2));
     
-    try {
-      // Format data to match backend
-      const formData = { 
-        team_name: ctfForm.team_name 
-      };
-      
-      // Add all 5 members 
-      for (let i = 1; i <= 5; i++) {
-        formData[`firstname${i}`] = ctfForm[`firstname${i}`];
-        formData[`lastname${i}`] = ctfForm[`lastname${i}`];
-        formData[`school${i}`] = ctfForm[`school${i}`];
-        formData[`year${i}`] = parseInt(ctfForm[`year${i}`]);
-        formData[`student_id${i}`] = ctfForm[`student_id${i}`].toUpperCase();
-        formData[`skills${i}`] = ctfForm[`skills${i}`];
-        formData[`profile_link${i}`] = ctfForm[`profile_link${i}`] || '';
-        formData[`email${i}`] = ctfForm[`email${i}`].toLowerCase();
-        formData[`discord_id${i}`] = ctfForm[`discord_id${i}`];
-      }
-      
-      const res = await axios.post('/api/special-pass-registrations/', formData, {
+    const response = await axios.post(
+      'http://localhost:8000/api/registration/special-pass/', 
+      formData,
+      {
         headers: {
           'Content-Type': 'application/json'
         }
-      });
-      
-      setSubmitMessage({ 
-        type: 'success', 
-        text: 'CTF Team registration successful! All members will receive confirmation emails.' 
-      });
-
-      setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-       }, 5000);
-      
-      // Reset form
-      setCtfForm({
-        team_name: '',
-        
-        firstname1: '', lastname1: '', school1: '', year1: '', student_id1: '', 
-        skills1: '', profile_link1: '', email1: '', discord_id1: '',
-       
-        firstname2: '', lastname2: '', school2: '', year2: '', student_id2: '', 
-        skills2: '', profile_link2: '', email2: '', discord_id2: '',
-       
-        firstname3: '', lastname3: '', school3: '', year3: '', student_id3: '', 
-        skills3: '', profile_link3: '', email3: '', discord_id3: '',
-       
-        firstname4: '', lastname4: '', school4: '', year4: '', student_id4: '', 
-        skills4: '', profile_link4: '', email4: '', discord_id4: '',
-       
-        firstname5: '', lastname5: '', school5: '', year5: '', student_id5: '', 
-        skills5: '', profile_link5: '', email5: '', discord_id5: '',
-      });
-      
-    } catch (error) {
-      if (error.response) {
-        const errors = error.response.data;
-        if (typeof errors === 'object') {
-          const firstError = Object.values(errors)[0];
-          setSubmitMessage({ type: 'error', text: Array.isArray(firstError) ? firstError[0] : firstError });
-          setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-          }, 5000);
-        } else {
-          setSubmitMessage({ type: 'error', text: 'Registration failed. Please try again.' });
-          setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-          }, 5000);
-        }
-      } else {
-        setSubmitMessage({ type: 'error', text: 'Network error. Please check your connection.' });
-        setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-          }, 5000);
       }
-    } finally {
-      setIsSubmitting(false);
+    );
+    
+    setSubmitMessage({ 
+      type: 'success', 
+      text: 'CTF Team registration successful! All members will receive confirmation emails.' 
+    });
+
+    setTimeout(() => {
+      setSubmitMessage({ type: '', text: '' });
+    }, 5000);
+    
+    // Reset form
+    setCtfForm({
+      team_name: '',
+      
+      firstname1: '', lastname1: '', school1: '', year1: '', student_id1: '', 
+      skills1: '', profile_link1: '', email1: '', discord_id1: '',
+      
+      firstname2: '', lastname2: '', school2: '', year2: '', student_id2: '', 
+      skills2: '', profile_link2: '', email2: '', discord_id2: '',
+      
+      firstname3: '', lastname3: '', school3: '', year3: '', student_id3: '', 
+      skills3: '', profile_link3: '', email3: '', discord_id3: '',
+      
+      firstname4: '', lastname4: '', school4: '', year4: '', student_id4: '', 
+      skills4: '', profile_link4: '', email4: '', discord_id4: '',
+      
+      firstname5: '', lastname5: '', school5: '', year5: '', student_id5: '', 
+      skills5: '', profile_link5: '', email5: '', discord_id5: '',
+    });
+    
+  } catch (error) {
+    console.error('Full error:', error);
+    
+    if (error.response) {
+      const errors = error.response.data;
+      console.log('Django errors:', errors);
+      
+      if (typeof errors === 'object') {
+        const errorList = Object.entries(errors)
+          .map(([field, messages]) => {
+            const fieldName = field.replace(/\d+$/, ''); 
+            const memberNum = field.match(/\d+$/)?.[0] || '';
+            return `Member ${memberNum} ${fieldName}: ${Array.isArray(messages) ? messages[0] : messages}`;
+          })
+          .join('\n');
+        
+        setSubmitMessage({ type: 'error', text: errorList });
+      } else {
+        setSubmitMessage({ type: 'error', text: `Error: ${errors}` });
+      }
+    } else {
+      setSubmitMessage({ type: 'error', text: 'Network error. Please check your connection.' });
     }
-  };
+    
+    setTimeout(() => {
+      setSubmitMessage({ type: '', text: '' });
+    }, 10000); 
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <section id='register'>

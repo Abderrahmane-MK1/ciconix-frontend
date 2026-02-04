@@ -7,6 +7,7 @@
     background: url('/images/hero-img.jpg') center center / cover no-repeat;
     overflow: hidden;
     z-index: 2;
+  
 }
 
 #hero-container {
@@ -110,6 +111,7 @@
 
 #hero-container {
     position: absolute;
+    width: 400px;
     top: 0;
     left: 0;
     right: 0;
@@ -199,6 +201,5 @@
     color: rgba(249, 228, 192, 0.7);
 }
 }
-
 
 
