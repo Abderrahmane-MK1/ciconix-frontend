@@ -10,7 +10,15 @@
    #root {
   margin: 0;
   padding: 0;
-  width: 480px;
+  width: 402px;
+  text-align: center;
+}
+}
+@media (min-width:481px) and (max-width:1024px){
+  #root {
+  margin: 0;
+  padding: 0;
+  width: 1124px;
   text-align: center;
 }
 }
