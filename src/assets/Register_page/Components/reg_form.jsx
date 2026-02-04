@@ -316,7 +316,7 @@ const reg_form = () => {
         formData[`discord_id${i}`] = ctfForm[`discord_id${i}`];
       }
       
-      const response = await axios.post('/api/special-pass-registrations/', formData, {
+      const res = await axios.post('/api/special-pass-registrations/', formData, {
         headers: {
           'Content-Type': 'application/json'
         }
