@@ -546,19 +546,6 @@ const RegForm = () => {
                     disabled={isSubmitting}
                   />
                 </div>
-
-                <div className='form-group'>
-                  <label htmlFor='profile_link'>Profile Link (Optional)</label>
-                  <input
-                    type='url'
-                    id='profile_link'
-                    name='profile_link'
-                    value={workshopForm.profile_link}
-                    onChange={handleWorkshopChange}
-                    placeholder='GitHub, LinkedIn, etc.'
-                    disabled={isSubmitting}
-                  />
-                </div>
               </div>
             </div>
 
