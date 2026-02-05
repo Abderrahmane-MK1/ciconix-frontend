@@ -236,7 +236,7 @@ const RegForm = () => {
         year: parseInt(workshopForm.year)
       };
       
-      const response = await axios.post('http://localhost:8000/api/registration/basic-pass/', formData, {
+      const response = await axios.post('https://ciconix-backend.onrender.com/api/registration/basic-pass/', formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -264,29 +264,47 @@ const RegForm = () => {
       });
       
     } catch (error) {
-      if (error.response) {
-        const errors = error.response.data;
-        if (typeof errors === 'object') {
-          const firstError = Object.values(errors)[0];
-          setSubmitMessage({ type: 'error', text: Array.isArray(firstError) ? firstError[0] : firstError });
-
-          setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-          }, 5000);
-
+  console.error('Registration error:', error);
+  
+  let errorText = 'Registration failed. Please try again.';
+  
+  if (error.response) {
+    console.log('Error response:', error.response.data);
+    
+    const errors = error.response.data;
+    
+    if (typeof errors === 'string') {
+      errorText = errors;
+    } else if (typeof errors === 'object') {
+      const errorEntries = Object.entries(errors);
+      
+      if (errorEntries.length > 0) {
+        const [field, messages] = errorEntries[0];
+        
+        if (Array.isArray(messages)) {
+          errorText = messages[0];
+        } else if (typeof messages === 'object') {
+          const nestedMessages = Object.values(messages);
+          errorText = Array.isArray(nestedMessages[0]) 
+            ? nestedMessages[0][0] 
+            : String(nestedMessages[0]);
         } else {
-          setSubmitMessage({ type: 'error', text: 'Registration failed. Please try again.' });
-          setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-          }, 5000);
+          errorText = String(messages);
         }
-      } else {
-        setSubmitMessage({ type: 'error', text: 'Network error. Please check your connection.' });
-        setTimeout(() => {
-              setSubmitMessage({ type: '', text: '' });
-        }, 5000);
       }
-    } finally {
+    }
+  } else if (error.request) {
+    errorText = 'No response from server. Is the backend running?';
+  } else {
+    errorText = `Error: ${error.message}`;
+  }
+  
+  setSubmitMessage({ type: 'error', text: errorText });
+  
+  setTimeout(() => {
+    setSubmitMessage({ type: '', text: '' });
+  }, 5000);
+} finally {
       setIsSubmitting(false);
     }
   };
@@ -320,7 +338,7 @@ const RegForm = () => {
     console.log('Sending to Django:', JSON.stringify(formData, null, 2));
     
     const response = await axios.post(
-      'http://localhost:8000/api/registration/special-pass/', 
+      'https://ciconix-backend.onrender.com/api/registration/special-pass/', 
       formData,
       {
         headers: {
@@ -358,34 +376,43 @@ const RegForm = () => {
       skills5: '', profile_link5: '', email5: '', discord_id5: '',
     });
     
-  } catch (error) {
-    console.error('Full error:', error);
+   } catch (error) {
+  console.error('CTF Registration error:', error);
+  
+  let errorText = 'Team registration failed. Please try again.';
+  
+  if (error.response) {
+    console.log('CTF Error response:', error.response.data);
     
-    if (error.response) {
-      const errors = error.response.data;
-      console.log('Django errors:', errors);
+    const errors = error.response.data;
+    
+    if (typeof errors === 'string') {
+      errorText = errors;
+    } else if (typeof errors === 'object') {
       
-      if (typeof errors === 'object') {
-        const errorList = Object.entries(errors)
-          .map(([field, messages]) => {
-            const fieldName = field.replace(/\d+$/, ''); 
-            const memberNum = field.match(/\d+$/)?.[0] || '';
-            return `Member ${memberNum} ${fieldName}: ${Array.isArray(messages) ? messages[0] : messages}`;
-          })
-          .join('\n');
+      const errorEntries = Object.entries(errors);
+      
+      if (errorEntries.length > 0) {
+        const [field, messages] = errorEntries[0];
+        const fieldName = field.replace(/_/g, ' ').replace(/\d+$/, '');
         
-        setSubmitMessage({ type: 'error', text: errorList });
-      } else {
-        setSubmitMessage({ type: 'error', text: `Error: ${errors}` });
+        if (Array.isArray(messages)) {
+          errorText = `${fieldName}: ${messages[0]}`;
+        } else if (typeof messages === 'string') {
+          errorText = `${fieldName}: ${messages}`;
+        } else {
+          errorText = `Error in ${fieldName}`;
+        }
       }
-    } else {
-      setSubmitMessage({ type: 'error', text: 'Network error. Please check your connection.' });
     }
-    
-    setTimeout(() => {
-      setSubmitMessage({ type: '', text: '' });
-    }, 10000); 
-  } finally {
+  }
+  
+  setSubmitMessage({ type: 'error', text: errorText });
+  
+  setTimeout(() => {
+    setSubmitMessage({ type: '', text: '' });
+  }, 5000);
+} finally {
     setIsSubmitting(false);
   }
 };
@@ -506,7 +533,7 @@ const RegForm = () => {
                   <label htmlFor='student_id'>Student ID *</label>
                   <input
                     type='text'
-                    pattern='[0-9]{8}'
+                    pattern='[0-9]{8,12}'
                     id='student_id'
                     name='student_id'
                     value={workshopForm.student_id}
@@ -683,7 +710,7 @@ const RegForm = () => {
                     <label htmlFor={`student_id${memberNum}`}>Student ID *</label>
                     <input
                       type='text'
-                      pattern='[0-9]{8}'
+                      pattern='[0-9]{8,12}'
                       id={`student_id${memberNum}`}
                       name={`student_id${memberNum}`}
                       value={ctfForm[`student_id${memberNum}`]}
