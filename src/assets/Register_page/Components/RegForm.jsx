@@ -506,7 +506,7 @@ const RegForm = () => {
                   <label htmlFor='student_id'>Student ID *</label>
                   <input
                     type='text'
-                    pattern='[0-9]{8}'
+                    pattern='[0-9]{8,12}'
                     id='student_id'
                     name='student_id'
                     value={workshopForm.student_id}
@@ -683,7 +683,7 @@ const RegForm = () => {
                     <label htmlFor={`student_id${memberNum}`}>Student ID *</label>
                     <input
                       type='text'
-                      pattern='[0-9]{8}'
+                      pattern='[0-9]{8,12}'                 
                       id={`student_id${memberNum}`}
                       name={`student_id${memberNum}`}
                       value={ctfForm[`student_id${memberNum}`]}
