@@ -12,9 +12,10 @@
   background-color: rgba(36, 14, 16);
 }
 
-body {
+html, body {
   min-height: 100vh;
   background-color:rgba(36, 14, 16); 
   color: #e5e7eb;
+  overflow-x: hidden;
 }
 

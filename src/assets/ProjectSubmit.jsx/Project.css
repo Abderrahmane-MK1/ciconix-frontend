@@ -1,0 +1,291 @@
+/* Project.css - Fixed and Complete */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@400;700&display=swap');
+
+.main-content {
+  min-height: 100vh;
+  background: rgba(36, 14, 16, 1);
+  padding: 32px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.header-section {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.header-section h2 {
+  color: rgba(249, 228, 192, 1);
+  font-size: 66px;
+  font-weight: 400;
+  line-height: 1.2; 
+  letter-spacing: 0%;
+  font-family: 'IM Fell English', serif;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  color: rgba(249, 228, 192, 1);
+  font-family: 'IM Fell English', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2; 
+  letter-spacing: 0%;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.guidelines {
+  background-color: rgba(113, 16, 22, 0.24);
+  border-radius: 22px;
+  border: 1px solid rgba(113, 16, 22, 1);
+  margin-bottom: 50px;
+  padding: 30px 40px;
+  width: 700px;
+  max-width: 100%;
+}
+
+.guidelines h3 { 
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.guidelines-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guidelines-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5; 
+  letter-spacing: 0%;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+  padding-left: 25px;
+  text-align: left;
+  position: relative;
+}
+
+.guidelines-list li:before {
+  content: "•";
+  color: rgb(252, 252, 252);
+  font-size: 30px;
+  position: absolute;
+  left: 0;
+  top: -10px;
+}
+
+.guidelines-list li:last-child {
+  margin-bottom: 0;
+}
+
+.submit-project-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.submit-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: 1px solid rgba(113, 16, 22, 1);
+  background: rgba(27, 11, 13, 1);
+  border-radius: 22px;
+  padding: 30px 50px;
+  width: 700px;
+  max-width: 100%;
+}
+
+.project-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; 
+}
+
+.project-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-form-label {
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif; 
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: white;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+#description{
+ font-weight: 700;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif; 
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: white;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.project-input {
+  padding: 17px;
+  border: 2px solid rgba(113, 16, 22, 1);
+  border-radius: 14px;
+  font-size: 15.1px;
+  font-family: 'Inter', sans-serif;
+  line-height: 100%;
+  letter-spacing: 0%;
+  background-color: rgba(249, 228, 192, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.project-input {
+  min-height: 120px; 
+  resize: vertical;
+  line-height: 1.5; 
+}
+
+.project-input::placeholder {
+  color: rgba(249, 228, 192, 0.5);
+}
+
+.project-input:focus {
+  outline: none;
+  border-color: rgb(163, 22, 32);
+  background-color: rgba(249, 228, 192, 0.15);
+  box-shadow: 0 0 0 2px rgba(163, 22, 32, 0.2);
+}
+
+.format-hint {
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 15.1px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  margin-top: 5px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.confirmation-message {
+  background: rgba(113, 16, 22, 0.2);
+  border: 1px solid rgba(113, 16, 22, 0.5);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 10px;
+  color: rgba(249, 228, 192, 0.8);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.error-message {
+  background: rgba(249, 228, 192, 0.1);
+  color: #ff6b6b;
+  padding: 16px;
+  border-radius: 14px;
+  border-left: 4px solid rgba(255, 107, 107, 0.8);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  animation: slideIn 0.3s ease;
+}
+
+.success-message {
+  background: rgba(113, 16, 22, 0.2);
+  color: rgba(249, 228, 192, 0.9);
+  padding: 16px;
+  border-radius: 14px;
+  border-left: 4px solid rgba(113, 16, 22, 1);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.submit-btn {
+  background: rgba(113, 16, 22, 1);
+  color: rgba(249, 228, 192, 1);
+  border: none;
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  cursor: pointer;
+  margin-top: 18px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  background: rgba(113, 16, 22, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(113, 16, 22, 0.3);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: rgba(249, 228, 192, 1);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

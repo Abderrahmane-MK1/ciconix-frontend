@@ -1,0 +1,172 @@
+.main-content {
+  min-height: 100vh;
+  background: rgba(36, 14, 16, 1);
+  padding: 100px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-section {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.header-section h2 {
+  color: rgba(249, 228, 192, 1);
+  font-size: 66px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
+  font-family: 'IM Fell English' , serif;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  color: rgba(249, 228, 192, 1);
+  font-family: 'IM Fell English' , serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.points-section {
+  margin-bottom: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.points-card {
+  background: rgba(113, 16, 22, 1);
+  padding: 16px 64px;
+  border-radius: 22px;
+  font-size: 24px;
+  font-family: 'Inter' serif;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  max-width: 400px;
+  
+}
+
+.points-label {
+  color: white ;
+}
+
+.points-value {
+  color: rgba(249, 228, 192, 1);
+  margin-left: 8px;
+}
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(113, 16, 22, 1) ;
+  background:rgba(27, 11, 13, 1) ;
+  border-radius: 22px;
+  padding: 30px 50px;
+  width: 700px;
+  margin-bottom: 100px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Inter' sans-serif;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: white;
+}
+
+.token-input {
+  padding: 17px;
+  border: 2px solid rgba(113, 16, 22, 1);
+  border-radius: 14px;
+  font-size:15.1px;
+  font-family:'Inter' , sans-serif;
+  line-height: 100%;
+  letter-spacing: 0%;
+  background-color: rgba(249, 228, 192, 0.1);
+}
+
+.token-input:focus {
+  outline: none;
+  border-color: rgb(163, 22, 32);
+}
+
+.format-hint {
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 15.1px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+.error-message {
+  background: rgba(249, 228, 192, 0.1);
+  color: #c33;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid rgba(113, 16, 22, 1);
+}
+
+.success-message {
+  background: rgba(113, 16, 22, 0.2);
+  color: rgba(249, 228, 192, 0.9);
+  padding: 16px;
+  border-radius: 14px;
+  border-left: 4px solid rgba(113, 16, 22, 1);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  animation: slideIn 0.3s ease;
+}
+
+.submit-btn {
+  background: rgba(113, 16, 22, 1);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

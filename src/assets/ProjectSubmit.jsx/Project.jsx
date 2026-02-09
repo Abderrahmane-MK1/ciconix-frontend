@@ -1,0 +1,164 @@
+import React, { useState } from 'react';
+import axios from 'axios'; 
+import { getValidToken } from '../../Utils/auth';
+import './Project.css';
+
+const Project = () => {
+  const [loading, setLoading] = useState(false); 
+  const [description, setDescription] = useState('');
+  const [link, setLink] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleDriveLinkChange = (e) => {
+    setLink(e.target.value);
+    setErrorMessage('');
+    setSuccessMessage('');
+  };
+
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
+    setErrorMessage('');
+    setSuccessMessage('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!link.trim()) {
+      setErrorMessage("Please enter Google Drive link");
+      return;
+    }
+
+    if (!link.includes('drive.google.com')) {
+      setErrorMessage('Please enter a valid Google Drive link');
+      return;
+    }
+
+    if (!description.trim()) {
+      setErrorMessage("Please enter project description");
+      return;
+    }
+
+    setLoading(true);
+    setErrorMessage('');
+    setSuccessMessage('');
+
+    try {
+
+      const accessToken = await getValidToken()
+      const res = await axios.post('/api/submit-project', 
+        { 
+          drive_link: link,
+          description: description 
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        }
+      );
+
+      if (res.status === 200) {
+        setSuccessMessage(`${res.data.message || 'Project submitted successfully!'}`);
+        setLink('');
+        setDescription('');
+      }
+      
+
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage(error.response.data.error);
+      } else {
+        setErrorMessage(error.message || 'Something went wrong. Please try again.');
+      }
+    } finally {
+      setLoading(false); 
+    }
+  };
+
+  return (
+    <main className="main-content">
+      <div className="container">
+        <div className="header-section">
+          <h2>Project Submission</h2>
+          <p className="subtitle">Submit your final hackathon project</p>
+        </div>
+
+        <div className='guidelines'>
+          <h3>Submission Guidelines</h3>
+          <ul className="guidelines-list">
+            <li>Upload your project to Google Drive and set sharing to "Anyone with the link"</li>
+            <li>Include README.md with project description and setup instructions</li>
+            <li>Add a demo video or screenshots if applicable</li>
+            <li>Deadline: March 22, 2026 at 11:00 AM</li>
+          </ul>
+        </div>
+
+        <div className="submit-project-section">
+          <form className="submit-project-form" onSubmit={handleSubmit}>
+            <div className="project-form-group">
+              <div className='project-form-row'>
+                <label className="project-form-label">Google Drive Link</label>
+                <input 
+                  type="text" 
+                  value={link} 
+                  onChange={handleDriveLinkChange}
+                  placeholder="https://drive.google.com/..."
+                  className="token-input"
+                  disabled={loading}
+                />
+                <p className="format-hint">Make sure the link is publicly accessible</p>
+              </div>
+
+              <div className='project-form-row'>
+                <label  id='description'>Project Description</label>
+                <textarea 
+                  value={description} 
+                  onChange={handleDescriptionChange}
+                  placeholder="Brief description of your project..."
+                  className="project-input"
+                  disabled={loading}
+                  rows="4"
+                />
+                <p className="format-hint">Describe your project features, technologies used, and innovations</p>
+              </div>
+              
+              <div className="confirmation-message">
+                By submitting, you confirm that this is your team's original work and complies with the hackathon rules.
+              </div>
+            </div>
+            
+            {errorMessage && (
+              <div className="error-message">
+                {errorMessage}
+              </div>
+            )}
+            
+            {successMessage && (
+              <div className="success-message">
+                {successMessage}
+              </div>
+            )}
+            
+            <button 
+              type="submit" 
+              className="submit-btn"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span className="spinner"></span>
+                  Submitting...
+                </>
+              ) : 'Submit Project'}
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default Project;
