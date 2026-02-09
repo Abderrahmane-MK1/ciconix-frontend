@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;700&display=swap');
+
+body {
+  background-color: #240E10;
+  color: #F9E4C0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.leaderboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+
+.main-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 66px;
+  text-align: center;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  font-style: italic;
+  max-width: 600px;
+  text-align: center;
+  margin: 10px auto 0 auto;
+}
+
+
+.top-three-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  margin: 100px 0;
+}
+
+.card-container {
+  position: relative;
+  width: 375px; 
+  height: 406px;
+}
+
+.card-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+.decoration {
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+}
+
+
+.link {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+}
+
+
+.pin {
+  top: 10px;
+  right: 15px;
+  width: 35px;
+}
+
+
+.loop {
+  top: 65px;
+  left: 25px;
+  width: 40px;
+  opacity: 0.4; 
+
+}
+.stamp {
+  position: absolute;
+  z-index: 20;
+}
+
+.stamp-c3 { bottom: 40px; right: -25px; width: 150px; transform: rotate(-15deg); }
+.stamp-c1 { bottom: 25px; right: 0px; width: 160px; transform: rotate(-10deg); }
+.stamp-c2 { bottom: -15px; right: -20px; width: 155px; transform: rotate(-5deg); }
+
+
+.card-content {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #240E10;
+  padding-bottom: 20px;
+}
+
+.pfp-img {
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
+  border: 4px solid #240E10;
+  object-fit: cover;
+  margin: 10px 0;
+}
+
+.rank-number { font-family: 'IM Fell English', serif; font-size: 38px; }
+.team-name-display { font-family: 'IM Fell English', serif; font-size: 32px; margin: 0; }
+
+
+.rotate-left { transform: rotate(-6deg) translateY(30px); z-index: 1; }
+.center-card { transform: translateY(-15px); z-index: 10; }
+.rotate-right { transform: rotate(6deg) translateY(45px); z-index: 1; }
+
+
+.table-container {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(113, 16, 22, 0.3);
+  border: 1px solid #711016;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.leaderboard-table { width: 100%; border-collapse: collapse; }
+.leaderboard-table th { background: rgba(74, 10, 14, 0.8); padding: 25px; text-align: left; }
+.leaderboard-table td { padding: 18px 25px; border-bottom: 1px solid rgba(113, 16, 22, 0.4); }
+
+.footer-quote { margin-top: 80px; text-align: center; font-family: 'IM Fell English', serif; }
+#data { font-size: 30px; margin-bottom: 5px; }
+#sherlock { font-size: 20px; opacity: 0.8; }
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .leaderboard-wrapper {
+    padding: 40px 15px;
+    overflow-x: hidden;
+  }
+
+  .main-title {
+    font-size: 48px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    max-width: 500px;
+  }
+
+  .top-three-section {
+    gap: 20px;
+    margin: 60px 0;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .card-container {
+    width: 260px;
+    height: 290px;
+  }
+
+  .rotate-left {
+    transform: none !important;
+    order: 2;
+  }
+
+  .center-card {
+    transform: none !important;
+    order: 1;
+  }
+
+  .rotate-right {
+    transform: none !important;
+    order: 3;
+  }
+
+  .pfp-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .rank-number {
+    font-size: 26px;
+  }
+
+  .team-name-display {
+    font-size: 22px;
+  }
+
+  .stamp-c3 { width: 100px; }
+  .stamp-c1 { width: 110px; }
+  .stamp-c2 { width: 105px; }
+
+  .table-container {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 15px 12px;
+    font-size: 14px;
+  }
+
+  #data {
+    font-size: 22px;
+  }
+
+  #sherlock {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .leaderboard-wrapper {
+    padding: 30px 10px;
+    overflow-x: hidden;
+  }
+
+  .main-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    max-width: 100%;
+    margin-top: 5px;
+  }
+
+  .top-three-section {
+    gap: 15px;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .card-container {
+    width: 220px;
+    height: 240px;
+  }
+
+  .rotate-left {
+    transform: none !important;
+    order: 2;
+    flex: 0 1 calc(50% - 8px);
+  }
+
+  .center-card {
+    transform: none !important;
+    order: 1;
+    flex: 0 1 100%;
+  }
+
+  .rotate-right {
+    transform: none !important;
+    order: 3;
+    flex: 0 1 calc(50% - 8px);
+  }
+
+  .pfp-img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .rank-number {
+    font-size: 22px;
+  }
+
+  .team-name-display {
+    font-size: 18px;
+  }
+
+  .card-content {
+    padding-bottom: 12px;
+  }
+
+  .stamp-c3,
+  .stamp-c1,
+  .stamp-c2 {
+    width: 80px;
+    bottom: 15px !important;
+  }
+
+  .decoration {
+    display: none;
+  }
+
+  .table-container {
+    max-width: 100%;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  .leaderboard-table th {
+    padding: 15px 8px;
+  }
+
+  #data {
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+
+  #sherlock {
+    font-size: 14px;
+  }
+
+  .footer-quote {
+    margin-top: 40px;
+  }
+}
