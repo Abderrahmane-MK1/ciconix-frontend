@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className='footer'>
         <div className='footer_content'>
-            <img src="images/cic_logo.png" alt="cic_logo" className='footer_logo' />
+            <img src="/images/cic_logo.png" alt="cic_logo" className='footer_logo' />
             <div className='contact_infos'>
                 <h3>Contact us</h3>
                 <p>Organized by TechVentures Inc.</p>

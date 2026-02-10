@@ -248,6 +248,10 @@
     color: #4CAF50; 
 }
 
+.token-score .score-icon {
+    color: #FF9800;; 
+}
+
 .total-score .score-icon {
     color: #2196F3; 
 }

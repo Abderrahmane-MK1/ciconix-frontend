@@ -101,7 +101,7 @@ const Login = () => {
 
     return (
         <main className='login-page'>
-            <img src="images/cic_logo.png" alt="CIC Logo" className='cic-logo' />
+            <img src="/images/cic_logo.png" alt="CIC Logo" className='cic-logo' />
             <div className='login-container'>  
                 <div className='login-selection'>
                     <img src="images/Beige logo.png" alt="CICONIX Logo" className='login-ciconix-logo'/>
