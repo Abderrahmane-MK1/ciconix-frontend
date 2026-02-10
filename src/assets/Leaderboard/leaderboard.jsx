@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import axios from "axios";
+import { getValidToken } from "../../Utils/auth";
 import "./leaderboard.css";
 
 const placeholderTeams = [
@@ -16,7 +18,16 @@ function Leaderboard() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/leaderboard/leaderboard/");
+
+        const accessToken = await getValidToken();
+        
+        const res = await fetch("http://localhost:8000/api/leaderboard/leaderboard/", {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        
         if (!res.ok) throw new Error("Server error");
 
         const result = await res.json();

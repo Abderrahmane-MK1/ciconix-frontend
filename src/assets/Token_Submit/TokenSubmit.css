@@ -201,6 +201,7 @@
 
 .stat-item {
     background: rgba(36, 14, 16, 0.7);
+    border: 1px solid  rgba(113, 16, 22, 1);
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -337,7 +338,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 0.8);
     background: rgba(113, 16, 22, 0.1);
     padding: 6px 14px;
     border-radius: 20px;
@@ -355,9 +356,10 @@
     color: rgba(249, 228, 192, 0.7);
     margin-bottom: 70px;
     margin-top: 70px;
+    border: 1px solid rgba(113, 16, 22, 1) ;
 }
 
-/* Format hint improvements */
+
 .format-hint code {
     background: rgba(113, 16, 22, 0.2);
     padding: 2px 8px;

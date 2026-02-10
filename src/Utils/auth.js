@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosInstance from './axiosInstance'
 
 
 export const saveTokens = (data) => {
@@ -120,12 +120,8 @@ export const logout = async () => {
     const refreshToken = localStorage.getItem('refresh_token');
     
     if (refreshToken) {
-      await axios.post('http://127.0.0.1:8000/api/teams/logout/', {
+      await axiosInstance.post('/api/teams/logout/', {
         refresh: refreshToken  
-      }, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-        }
       });
     }
   } catch (error) {

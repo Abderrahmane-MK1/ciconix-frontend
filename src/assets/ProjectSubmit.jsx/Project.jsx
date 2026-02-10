@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
-import { getValidToken } from '../../Utils/auth';
+import axiosInstance from '../../Utils/axiosInstance'
 import './Project.css';
 
 const Project = () => {
@@ -33,20 +32,9 @@ const Project = () => {
     setSuccessMessage('');
 
     try {
-      const accessToken = await getValidToken();
-      
-      const res = await axios.post('http://127.0.0.1:8000/api/projects/submit/', 
-        { 
-          project_link: link
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${accessToken}`
-          }
-        }
-      );
 
+      const res = await axiosInstance.get('/api/projects/submit/')
+  
       if (res.data.success) {
         setSuccessMessage(res.data.message || 'Project submitted successfully!');
         setLink(''); 

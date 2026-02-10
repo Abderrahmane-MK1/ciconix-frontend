@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../Utils/axiosInstance'
 import './TokenSubmit.css'
-import { getValidToken } from '../../Utils/auth';
 import { FaStar } from 'react-icons/fa';
 import { FaKey } from 'react-icons/fa';
 import { FaChartLine } from 'react-icons/fa';
@@ -45,14 +44,9 @@ const TokenSubmit = () => {
   // ✅ FIXED: Add signal parameter for abort control
   const fetchTokenHistory = async (signal) => {
     try {
-      const accessToken = await getValidToken();
-      const res = await axios.get('http://127.0.0.1:8000/api/tokens/history/', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        },
-        signal // Pass the abort signal
-      });
-      
+
+      const res = await axiosInstance.get('/api/tokens/history/')
+     
       console.log('History response:', res.data);
       
       if (res.data.success) {
@@ -93,7 +87,6 @@ const TokenSubmit = () => {
         return;
     }
 
-    // Backend validation: token must be at least 32 chars
     if (token.length < 32) {
         setErrorMessage('Token is too short (minimum 32 characters)');
         return;
@@ -104,19 +97,7 @@ const TokenSubmit = () => {
     setSuccessMessage('');
     
     try {
-       const accessToken = await getValidToken(); 
-       
-       const res = await axios.post('http://127.0.0.1:8000/api/tokens/submit/', 
-        { 
-          token: token
-        },
-        {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`
-            }
-        }
-       );
+       const res = await axiosInstance.get('/api/tokens/submit/')
 
        console.log('Submit response:', res.data);
 

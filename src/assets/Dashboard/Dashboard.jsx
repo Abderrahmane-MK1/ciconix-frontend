@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axiosInstance from '../../Utils/axiosInstance'
 import { PiRankingBold } from "react-icons/pi";
 import { GoPeople } from "react-icons/go";
 import { FaFontAwesomeFlag, FaTrophy, FaEnvelope, FaCalendarAlt, FaIdBadge } from "react-icons/fa";
 import { FiShield } from "react-icons/fi";
 import './Dashboard.css'
 import { useNavigate } from 'react-router-dom';
-import { checkAuth, getValidToken } from '../../Utils/auth';
+import { checkAuth} from '../../Utils/auth';
 
 const Dashboard = () => {
 
@@ -80,12 +80,7 @@ const Dashboard = () => {
     try {
       setLoading(true)
 
-      const accessToken = await getValidToken(); 
-      const res = await axios.get('http://127.0.0.1:8000/api/teams/profile/', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      })
+      const res = await axiosInstance.get('/api/teams/profile/')
 
       console.log('profile response: ', res.data)
       
@@ -102,7 +97,7 @@ const Dashboard = () => {
       }
     } catch (error) {
       console.error('Error fetching team profile:', error)
-      console.log('error status', error.response.status)
+      console.log('error status "profile"', error.response.status)
       const savedTeamName = localStorage.getItem('team_name')
 
       // adding just team name
@@ -159,7 +154,7 @@ const Dashboard = () => {
     return (
       <div className='dashboard-container loading'>
         <div className="loading-spinner"></div>
-        <p>Loading team profile...</p>
+        <p>Loading ...</p>
       </div>
     )
   }
