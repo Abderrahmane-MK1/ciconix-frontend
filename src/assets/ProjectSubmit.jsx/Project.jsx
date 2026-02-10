@@ -35,7 +35,7 @@ const Project = () => {
     try {
       const accessToken = await getValidToken();
       
-      const res = await axios.post('/api/projects/submit/', 
+      const res = await axios.post('http://127.0.0.1:8000/api/projects/submit/', 
         { 
           project_link: link
         },

@@ -120,7 +120,7 @@ export const logout = async () => {
     const refreshToken = localStorage.getItem('refresh_token');
     
     if (refreshToken) {
-      await axios.post('/api/logout/', {
+      await axios.post('http://127.0.0.1:8000/api/teams/logout/', {
         refresh: refreshToken  
       }, {
         headers: {

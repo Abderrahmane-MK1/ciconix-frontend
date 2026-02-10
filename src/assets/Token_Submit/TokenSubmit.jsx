@@ -17,36 +17,36 @@ const TokenSubmit = () => {
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
 
   // ✅ FIXED: Proper useEffect with error handling
-  // useEffect(() => {
-  //   // Create a controller for cleanup
-  //   const controller = new AbortController();
+  useEffect(() => {
+    // Create a controller for cleanup
+    const controller = new AbortController();
     
-  //   const loadHistory = async () => {
-  //     setIsLoadingHistory(true);
-  //     try {
-  //       await fetchTokenHistory(controller.signal);
-  //     } catch (error) {
-  //       if (error.name !== 'AbortError') {
-  //         console.error('Failed to load token history:', error);
-  //       }
-  //     } finally {
-  //       setIsLoadingHistory(false);
-  //     }
-  //   };
+    const loadHistory = async () => {
+      setIsLoadingHistory(true);
+      try {
+        await fetchTokenHistory(controller.signal);
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.error('Failed to load token history:', error);
+        }
+      } finally {
+        setIsLoadingHistory(false);
+      }
+    };
     
-  //   loadHistory();
+    loadHistory();
     
-  //   // Cleanup function
-  //   return () => {
-  //     controller.abort();
-  //   };
-  // }, []);
+    // Cleanup function
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   // ✅ FIXED: Add signal parameter for abort control
   const fetchTokenHistory = async (signal) => {
     try {
       const accessToken = await getValidToken();
-      const res = await axios.get('/api/tokens/history/', {
+      const res = await axios.get('http://127.0.0.1:8000/api/tokens/history/', {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         },
@@ -106,7 +106,7 @@ const TokenSubmit = () => {
     try {
        const accessToken = await getValidToken(); 
        
-       const res = await axios.post('/api/tokens/submit/', 
+       const res = await axios.post('http://127.0.0.1:8000/api/tokens/submit/', 
         { 
           token: token
         },

@@ -16,7 +16,7 @@ function Leaderboard() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const res = await fetch("http://localhost:8000/leaderboard/");
+        const res = await fetch("http://localhost:8000/api/leaderboard/leaderboard/");
         if (!res.ok) throw new Error("Server error");
 
         const result = await res.json();

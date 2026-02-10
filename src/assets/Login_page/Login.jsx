@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import { refreshToken, saveTokens } from '../../Utils/auth';
+import axios from 'axios';
+import { saveTokens } from '../../Utils/auth';
 import './Login.css'
 
 const Login = () => {
     
     const [teamInfos, setTeamInfos] = useState({
         team_name: '',
-        Password:''
+        password: ''
     })
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('')
@@ -21,19 +21,18 @@ const Login = () => {
     }
 
     const validateLogin = () => {
-        const { team_name, Password } = teamInfos;
+        const { team_name, password } = teamInfos;
 
         if(!team_name.trim()) {
             setErrorMessage("Please enter your team name");
-            setTimeout (()=>{
+            setTimeout(() => {
                 setErrorMessage('')
             }, 5000);
-
             return false;
         }
 
-        if(!Password) {
-            setErrorMessage("Your passwod is required");
+        if(!password) {
+            setErrorMessage("Your password is required");
             setTimeout(() => {
                 setErrorMessage('')
             }, 5000);
@@ -54,10 +53,10 @@ const Login = () => {
         try {
             const formData = {
                 team_name: teamInfos.team_name.trim(),
-                password: teamInfos.Password
+                password: teamInfos.password
             }
 
-            const res = await axios.post("/api/login/", formData,
+            const res = await axios.post("http://127.0.0.1:8000/api/teams/login/", formData,
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -65,91 +64,97 @@ const Login = () => {
                 }
             );
 
-            if(res.status === 200 && re.data.success) {
-                console.log("login successful: ", res.data)
+            console.log("Login response:", res.data);
 
+            if(res.status === 200 && res.data.success) {
+    
+                const responseData = res.data.data;
+                
+               
                 saveTokens({
-                    access_token: res.data.data.access,
-                    refresh_token: res.data.data.refresh,
-                    expires_in: res.data.data.expires_in,
-                    team_name: res.data.data.team_name
+                    access: responseData.access, 
+                    refresh: responseData.refresh,
+                    expires_in: responseData.expires_in,
+                    team_name: responseData.team_name
                 });
 
-                localStorage.setItem('team_name', res.data.data.team_name);
-                localStorage.setItem('ctfd_team_id', res.data.data.ctfd_team_id)
+                localStorage.setItem('team_name', responseData.team_name);
+                if (responseData.ctfd_team_id) {
+                    localStorage.setItem('ctfd_team_id', responseData.ctfd_team_id);
+                }
 
                 setTeamInfos({ team_name: '', password: '' });
 
                 window.location.href = '/dashboard';
-            };
+            }
 
         } catch (error) {
             if(error.response) {
-                setErrorMessage( error.response.data.errors || 'Login failed. Please check your credentials.');
+                setErrorMessage(error.response.data.errors || 'Login failed. Please check your credentials.');
             } else {
                 setErrorMessage('Network error. Please check your connection.')
             }
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     };
 
-  return (
-    <main className='login-page'>
-      <img src="images/cic_logo.png" alt="CIC Logo" className='cic-logo' />
-      <div className='login-container'>  
-        <div className='login-selection'>
-          <img src="images/Beige logo.png" alt="CICONIX Logo" className='login-ciconix-logo'/>
-          <h2>Login</h2>
-          <p>Login and start</p>
+    return (
+        <main className='login-page'>
+            <img src="images/cic_logo.png" alt="CIC Logo" className='cic-logo' />
+            <div className='login-container'>  
+                <div className='login-selection'>
+                    <img src="images/Beige logo.png" alt="CICONIX Logo" className='login-ciconix-logo'/>
+                    <h2>Login</h2>
+                    <p>Login and start</p>
 
-          {errorMessage && (
-            <div className='error-message'>
-              {errorMessage}
+                    {errorMessage && (
+                        <div className='error-message'>
+                            {errorMessage}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleTeamSubmit} className='login-form'>
+                        <div className='form_group'>
+                            <label htmlFor="team_name">Team name*</label>
+                            <input 
+                                type="text"
+                                name='team_name'
+                                value={teamInfos.team_name}
+                                onChange={handleLoginChange}
+                                disabled={loading}
+                                placeholder='Enter your team name'
+                                required
+                            />
+                        </div>
+
+                        <div className='form_group'>
+                            <label htmlFor="password">Password*</label>
+                            <input 
+                                type="password"
+                                name='password'
+                                value={teamInfos.password}
+                                onChange={handleLoginChange}
+                                disabled={loading}
+                                placeholder='Enter your team password'
+                                required
+                            />
+                        </div>
+                        
+
+                        <button type='submit' id='login-btn' disabled={loading}>
+                            {loading ? (
+                                <>
+                                    <span className="spinner"></span>
+                                    Logging in...
+                                </>
+                            ) : 'Login'}
+                        </button>
+                    </form>
+                </div>
             </div>
-          )}
-
-          <form onSubmit={handleTeamSubmit} className='login-form'>
-            <div className='form_group'>
-                <label htmlFor="team_name">Team name*</label>
-                <input 
-                type="text"
-                name='team_name'
-                value={teamInfos.team_name}
-                onChange={handleLoginChange}
-                disabled={loading}
-                placeholder='Enter your team name'
-                required
-                />
-            </div>
-
-            <div className='form_group'>
-                <label htmlFor="password">Password*</label>
-                <input 
-                type="password"
-                name='Password'
-                value={teamInfos.Password}
-                onChange={handleLoginChange}
-                disabled={loading}
-                placeholder='Enter your team password'
-                required
-                />
-            </div>
-            
-
-            <button type='submit' id='login-btn' disabled={loading}>
-                {loading ? (
-                  <>
-                    <span className="spinner"></span>
-                    Logging in...
-                  </>
-                ) : 'Login'}
-            </button>
-           </form>
-        </div>
-      </div>
-    </main>
-  );
+        </main>
+    );
 }
 
-export default Login
+export default Login;

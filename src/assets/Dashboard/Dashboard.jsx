@@ -81,7 +81,7 @@ const Dashboard = () => {
       setLoading(true)
 
       const accessToken = await getValidToken(); 
-      const res = await axios.get('/api/profile/', {
+      const res = await axios.get('http://127.0.0.1:8000/api/teams/profile/', {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         }
