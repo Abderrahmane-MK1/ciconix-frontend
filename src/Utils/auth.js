@@ -3,12 +3,12 @@ import axios from 'axios';
 
 export const saveTokens = (data) => {
     console.log('Saving tokens:', { 
-        hasAccessToken: !!data.access_token,
-        hasRefreshToken: !!data.refresh_token 
+        hasAccessToken: !!data.access,
+        hasRefreshToken: !!data.refresh 
     });
     
-    localStorage.setItem('access_token', data.access_token);
-    localStorage.setItem('refresh_token', data.refresh_token);
+    localStorage.setItem('access_token', data.access);
+    localStorage.setItem('refresh_token', data.refresh);
     
     const expiresIn = data.expires_in || 3600; //set it to one hour if it is undefined
     const expiryTime = Date.now() + (expiresIn * 1000); // convert to ms * 1000
@@ -53,7 +53,7 @@ export const isTokenValid = () => {
 };
 
 export const refreshToken = async () => {
-    console.log('Attempting token refresh...');
+    console.log('token refresh');
     
     try {
         const refreshToken = localStorage.getItem('refresh_token');
@@ -63,15 +63,19 @@ export const refreshToken = async () => {
             throw new Error('No refresh token');
         }
         
-        const response = await axios.post('/api/refresh-token', {
-            refresh_token: refreshToken
+        const response = await axios.post('/api/token/refresh/', {
+            refresh: refreshToken
         });
         
         console.log('Refresh successful!');
         
-        saveTokens(response.data);
+        saveTokens({
+            access: response.data.access,
+            refresh: response.data.refresh,
+            expires_in: response.data.expires_in
+        });
         
-        return response.data.access_token;
+        return response.data.access;
         
     } catch (error) {
         console.error('Refresh failed:', error.message);
@@ -111,9 +115,26 @@ export const checkAuth = () => {
     return true;
 };
 
-export const logout = () => {
-  clearTokens();
-  localStorage.removeItem('team_name');
-  console.log('User logged out');
-  window.location.href = '/login';
+export const logout = async () => {
+  try {
+    const refreshToken = localStorage.getItem('refresh_token');
+    
+    if (refreshToken) {
+      await axios.post('/api/logout/', {
+        refresh: refreshToken  
+      }, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        }
+      });
+    }
+  } catch (error) {
+    console.log('Logout API error (still clearing local):', error);
+  } finally {
+    clearTokens();
+    localStorage.removeItem('team_name');
+    localStorage.removeItem('ctfd_team_id');
+    console.log('User logged out');
+    window.location.href = '/login';
+  }
 };

@@ -5,8 +5,9 @@ import Navbar from './assets/Components/Navbar';
 import Dashboard from './assets/Dashboard/Dashboard';
 import ProjectSubmit from './assets/ProjectSubmit.jsx/Project';
 import Footer from './assets/Register_page/Components/Footer';
-import TokenSubmit from './assets/Token_Submit/TokenSubmit';
+import TokenSubmit from './assets/Token_Submit/TokenSubmit'
 import Ctf_Platform from './assets/Ctf-Platform/Ctf_Platform';
+import Leaderboard from './assets/Leaderboard/leaderboard';
 import { checkAuth, isTokenValid } from './Utils/auth';
 
 //ProtectedRoute
@@ -25,114 +26,123 @@ const PublicRoute = ({ children }) => {
 
 const App = () => {
   return (
-    // <Router>
-    //   <div className="app-container">
-    //     <Routes>
-    //       {/* Public Route */}
-    //       <Route path="/login" element={
-    //         <PublicRoute>
-    //           <Login />
-    //         </PublicRoute>
-    //       } />
+    <Router>
+      <div className="app-container">
+        <Routes>
+          {/* Public Route */}
+          <Route path="/login" element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          } />
           
-    //       {/* Protected Routes */}
-    //       <Route path="/dashboard" element={
-    //         <ProtectedRoute>
-    //           <>
-    //             <Navbar />
-    //             <Dashboard />
-    //             <Footer />
-    //           </>
-    //         </ProtectedRoute>
-    //       } />
+          {/* Protected Routes */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <>
+                <Navbar />
+                <Dashboard />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          } />
           
-    //       <Route path="/ctf-platform" element={
-    //         <ProtectedRoute>
-    //           <>
-    //             <Navbar />
-    //             <Ctf_Platform />
-    //             <Footer />
-    //           </>
-    //         </ProtectedRoute>
-    //       } />
+          <Route path="/ctf-platform" element={
+            <ProtectedRoute>
+              <>
+                <Navbar />
+                <Ctf_Platform />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          } />
           
-    //       <Route path="/submit-token" element={
-    //         <ProtectedRoute>
-    //           <>
-    //             <Navbar />
-    //             <TokenSubmit />
-    //             <Footer />
-    //           </>
-    //         </ProtectedRoute>
-    //       } />
+          <Route path="/submit-token" element={
+            <ProtectedRoute>
+              <>
+                <Navbar />
+                <TokenSubmit />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          } />
           
-    //       <Route path="/submit-project" element={
-    //         <ProtectedRoute>
-    //           <>
-    //             <Navbar />
-    //             <ProjectSubmit />
-    //             <Footer />
-    //           </>
-    //         </ProtectedRoute>
-    //       } />
+          <Route path="/submit-project" element={
+            <ProtectedRoute>
+              <>
+                <Navbar />
+                <ProjectSubmit />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          } />
+
+          <Route path="/leaderboard" element={
+            <ProtectedRoute>
+              <>
+                <Navbar />
+                <Leaderboard />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          } />
           
-    //       <Route path="*" element={<Navigate to="/dashboard" replace />} />
-    //     </Routes>
-    //   </div>
-    // </Router>
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        </Routes>
+      </div>
+    </Router>
 
 
     //just for testing links
-    <Router>
-    <div className="app-container">
-      <Routes>
-        {/* Public Route */}
-        <Route path="/login" element={<Login />} />
+  //   <Router>
+  //   <div className="app-container">
+  //     <Routes>
         
-        {/* Dashboard Route */}
-        <Route path="/dashboard" element={
-          <>
-            <Navbar />
-            <Dashboard />
-            <Footer />
-          </>
-        } />
+  //       <Route path="/login" element={<Login />} />
         
-        {/* CTF Platform Route */}
-        <Route path="/ctf-platform" element={
-          <>
-            <Navbar />
-            <Ctf_Platform />
-            <Footer />
-          </>
-        } />
+       
+  //       <Route path="/dashboard" element={
+  //         <>
+  //           <Navbar />
+  //           <Dashboard />
+  //           <Footer />
+  //         </>
+  //       } />
         
-        {/* Token Submit Route */}
-        <Route path="/submit-token" element={
-          <>
-            <Navbar />
-            <TokenSubmit />
-            <Footer />
-          </>
-        } />
+  //       {/* CTF Platform Route */}
+  //       <Route path="/ctf-platform" element={
+  //         <>
+  //           <Navbar />
+  //           <Ctf_Platform />
+  //           <Footer />
+  //         </>
+  //       } />
         
-        {/* Project Submit Route */}
-        <Route path="/submit-project" element={
-          <>
-            <Navbar />
-            <ProjectSubmit />
-            <Footer />
-          </>
-        } />
+  //       {/* Token Submit Route */}
+  //       <Route path="/submit-token" element={
+  //         <>
+  //           <Navbar />
+  //           <TokenSubmit />
+  //           <Footer />
+  //         </>
+  //       } />
+  //        {/* Project Submit Route */}
+  //       <Route path="/submit-project" element={
+  //         <>
+  //           <Navbar />
+  //           <ProjectSubmit />
+  //           <Footer />
+  //         </>
+  //       }/>
         
-        {/* Default redirect to dashboard */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+  //       {/* Default redirect to dashboard */}
+  //       <Route path="/" element={<Navigate to="/dashboard" replace />} />
         
-        {/* Catch-all route */}
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
-      </Routes>
-    </div>
-  </Router>
+  //       {/* Catch-all route */}
+  //       <Route path="*" element={<Navigate to="/dashboard" replace />} />
+  //     </Routes>
+  //   </div>
+  // </Router>
   );
 }
 

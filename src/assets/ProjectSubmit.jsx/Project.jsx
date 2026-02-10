@@ -5,19 +5,12 @@ import './Project.css';
 
 const Project = () => {
   const [loading, setLoading] = useState(false); 
-  const [description, setDescription] = useState('');
   const [link, setLink] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
   const handleDriveLinkChange = (e) => {
     setLink(e.target.value);
-    setErrorMessage('');
-    setSuccessMessage('');
-  };
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
     setErrorMessage('');
     setSuccessMessage('');
   };
@@ -35,22 +28,16 @@ const Project = () => {
       return;
     }
 
-    if (!description.trim()) {
-      setErrorMessage("Please enter project description");
-      return;
-    }
-
     setLoading(true);
     setErrorMessage('');
     setSuccessMessage('');
 
     try {
-
-      const accessToken = await getValidToken()
-      const res = await axios.post('/api/submit-project', 
+      const accessToken = await getValidToken();
+      
+      const res = await axios.post('/api/projects/submit/', 
         { 
-          drive_link: link,
-          description: description 
+          project_link: link
         },
         {
           headers: {
@@ -60,18 +47,18 @@ const Project = () => {
         }
       );
 
-      if (res.status === 200) {
-        setSuccessMessage(`${res.data.message || 'Project submitted successfully!'}`);
-        setLink('');
-        setDescription('');
+      if (res.data.success) {
+        setSuccessMessage(res.data.message || 'Project submitted successfully!');
+        setLink(''); 
       }
-      
 
     } catch (error) {
       if (error.response) {
-        setErrorMessage(error.response.data.error);
+        setErrorMessage(error.response.data.message || 'Submission failed');
+      } else if (error.request) {
+        setErrorMessage('Network error. Please check your connection.');
       } else {
-        setErrorMessage(error.message || 'Something went wrong. Please try again.');
+        setErrorMessage('Something went wrong. Please try again.');
       }
     } finally {
       setLoading(false); 
@@ -110,19 +97,6 @@ const Project = () => {
                   disabled={loading}
                 />
                 <p className="format-hint">Make sure the link is publicly accessible</p>
-              </div>
-
-              <div className='project-form-row'>
-                <label  id='description'>Project Description</label>
-                <textarea 
-                  value={description} 
-                  onChange={handleDescriptionChange}
-                  placeholder="Brief description of your project..."
-                  className="project-input"
-                  disabled={loading}
-                  rows="4"
-                />
-                <p className="format-hint">Describe your project features, technologies used, and innovations</p>
               </div>
               
               <div className="confirmation-message">

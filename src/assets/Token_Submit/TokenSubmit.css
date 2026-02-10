@@ -167,6 +167,234 @@
   animation: spin 1s linear infinite;
 }
 
+.stats-card {
+    background: rgba(27, 11, 13, 1);
+    border: 2px solid rgba(113, 16, 22, 1);
+    border-radius: 22px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(113, 16, 22, 0.3);
+}
+
+.stats-header h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 24px;
+    color: rgba(249, 228, 192, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.stat-item {
+    background: rgba(36, 14, 16, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.total-points {
+    border-left: 4px solid  rgba(113, 16, 22, 1);
+}
+
+.tokens-count {
+    border-left: 4px solid  rgba(113, 16, 22, 1);
+}
+
+.avg-points {
+    border-left: 4px solid  rgba(113, 16, 22, 1);
+}
+
+.stat-icon {
+    font-size: 30px;
+    min-width: 40px;
+    text-align: center;
+    color: rgba(249, 228, 192, 1);
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+}
+
+.stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(249, 228, 192, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-family: 'IM Fell English', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgba(249, 228, 192, 1);
+}
+
+/* History Section */
+.history-section {
+    background: rgba(27, 11, 13, 1);
+    border: 1px solid rgba(113, 16, 22, 1);
+    border-radius: 22px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.history-header h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 22px;
+    color: rgba(249, 228, 192, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(249, 228, 192, 0.7);
+    background: rgba(113, 16, 22, 0.2);
+    padding: 5px 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(113, 16, 22, 0.5);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Scrollbar styling */
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: rgba(36, 14, 16, 0.3);
+    border-radius: 3px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: rgba(113, 16, 22, 0.5);
+    border-radius: 3px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(113, 16, 22, 0.7);
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(36, 14, 16, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(113, 16, 22, 0.3);
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    background: rgba(36, 14, 16, 0.7);
+    border-color: rgba(113, 16, 22, 0.5);
+}
+
+.points-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(113, 16, 22, 1);
+    background: rgba(113, 16, 22, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.history-time {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(249, 228, 192, 0.7);
+}
+
+.empty-history {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(249, 228, 192, 0.7);
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+
+/* Format hint improvements */
+.format-hint code {
+    background: rgba(113, 16, 22, 0.2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: monospace;
+    color: rgba(249, 228, 192, 0.9);
+}
+
+.hint-small {
+    font-size: 13px;
+    color: rgba(249, 228, 192, 0.6);
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }

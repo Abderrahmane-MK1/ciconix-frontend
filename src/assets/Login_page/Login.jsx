@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { saveTokens } from '../../Utils/auth';
+import { refreshToken, saveTokens } from '../../Utils/auth';
 import './Login.css'
 
 const Login = () => {
@@ -57,7 +57,7 @@ const Login = () => {
                 password: teamInfos.Password
             }
 
-            const res = await axios.post("/api/login", formData,
+            const res = await axios.post("/api/login/", formData,
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -65,12 +65,18 @@ const Login = () => {
                 }
             );
 
-            if(res.status === 200) {
+            if(res.status === 200 && re.data.success) {
                 console.log("login successful: ", res.data)
 
-                saveTokens(res.data);
+                saveTokens({
+                    access_token: res.data.data.access,
+                    refresh_token: res.data.data.refresh,
+                    expires_in: res.data.data.expires_in,
+                    team_name: res.data.data.team_name
+                });
 
-                localStorage.setItem('team_name', teamInfos.team_name)
+                localStorage.setItem('team_name', res.data.data.team_name);
+                localStorage.setItem('ctfd_team_id', res.data.data.ctfd_team_id)
 
                 setTeamInfos({ team_name: '', password: '' });
 
