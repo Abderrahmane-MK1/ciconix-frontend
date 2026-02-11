@@ -75,7 +75,7 @@ const Navbar = () => {
             <span>CTF Challenges</span>
           </Link>
           <Link to="/submit-token" className="mobile-nav-link" onClick={closeMenu}>
-            <span>Submit Flags</span>
+            <span>Submit Tokens</span>
           </Link>
           <Link to="/submit-project" className="mobile-nav-link" onClick={closeMenu}>
             <span>Submit Project</span>

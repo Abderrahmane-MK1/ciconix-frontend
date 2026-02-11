@@ -43,16 +43,57 @@ const Project = () => {
       }
 
     } catch (error) {
+    
+      console.error("Submission error:", error);
+    
       if (error.response) {
-        setErrorMessage(error.response.data.message || 'Submission failed');
+        // Server responded with error status (4xx, 5xx)
+        const status = error.response.status;
+        const data = error.response.data;
+      
+        //  Handle different HTTP status codes
+        if (status === 400) {
+          if (data.project_link) {
+            setErrorMessage(data.project_link[0]); // Field-specific error
+          } else if (data.non_field_errors) {
+            setErrorMessage(data.non_field_errors[0]); // General error
+          } else if (data.message) {
+            setErrorMessage(data.message);
+          } else {
+            setErrorMessage('Invalid submission. Please check your link.');
+          }
+        } 
+        else if (status === 401) {
+          setErrorMessage('Your session has expired. Please login again.');
+          // Optional: redirect to login
+          // window.location.href = '/login';
+        }
+        else if (status === 403) {
+          setErrorMessage('You do not have permission to submit a project.');
+        }
+        else if (status === 404) {
+          setErrorMessage('Submission endpoint not found. Please contact support.');
+        }
+        else if (status === 429) {
+          setErrorMessage('Too many attempts. Please wait a few minutes.');
+        }
+        else if (status >= 500) {
+          setErrorMessage('Server error. Please try again later.');
+        }
+        else {
+          setErrorMessage(data.message || 'Submission failed. Please try again.');
+        }
       } else if (error.request) {
-        setErrorMessage('Network error. Please check your connection.');
+      // Request was made but no response received
+      setErrorMessage('Network error. Please check your internet connection.');
       } else {
+        // Something happened in setting up the request
         setErrorMessage('Something went wrong. Please try again.');
       }
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
+
   };
 
   return (
@@ -69,7 +110,7 @@ const Project = () => {
             <li>Upload your project to Google Drive and set sharing to "Anyone with the link"</li>
             <li>Include README.md with project description and setup instructions</li>
             <li>Add a demo video or screenshots if applicable</li>
-            <li>Deadline: March 22, 2026 at 11:00 AM</li>
+            <li>Deadline: 13 February 2026 05:00 PM</li>
           </ul>
         </div>
 
@@ -109,7 +150,7 @@ const Project = () => {
             <button 
               type="submit" 
               className="submit-btn"
-              disabled={loading}
+              disabled={loading || !link.trim()}
             >
               {loading ? (
                 <>

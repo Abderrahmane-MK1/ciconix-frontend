@@ -11,7 +11,7 @@ const Footer = () => {
             <img src="/images/cic_logo.png" alt="cic_logo" className='footer_logo' />
             <div className='contact_infos'>
                 <h3>Contact us</h3>
-                <p>Organized by TechVentures Inc.</p>
+                <p>Organized by cic club.</p>
                 <p>cic@nscs.edu.dz</p>
             </div>
             <div className='follow_us'>

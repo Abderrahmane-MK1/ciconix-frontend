@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   const schedule = {
     1: [
-        {time: '02:00 pm', text: 'Check-in and Registrations'},
+        {time: '01:30 pm', text: 'Check-in and Registrations'},
         {time: '03:00 pm', text: 'Opening Ceremony'},
         {time: '05:00 pm', text: 'Challenge & project announcement'},
         {time: '05:00 pm - Next day', text: 'Continuous Development & coding'}
@@ -36,15 +36,15 @@ const Dashboard = () => {
     2: [
         {time: '12:00 am - 05:00 pm', text: 'Development Continuous'},
         {time: '05:00 pm', text: 'Development Ends'},
-        {time: '05:00 pm - 08:00 pm', text: 'Challenge & project announcement'},
-        {time: '08:00 pm - 10:00 pm', text: 'Networking and Fun Activities'},
-        {time: '10:00 pm', text: 'CTF Competition Begins (18 hours)'},
-        {time: '10:00 pm - Next Day ', text: 'CTF Competition continuous'}
+        {time: '05:00 pm - 08:00 pm', text: 'pitching and project submission'},
+        {time: '08:00 pm - 12:00 am ', text: 'Networking and Fun Activities (tokens are taken during this period)'},
+        {time: '12:00 am ', text: 'CTF Competition Begins (18 hours)'},
+        {time: '12:00 am - Next Day ', text: 'CTF Competition continuous'}
     ],
     3: [
-        {time: '12:00 am - 04:00 pm', text: 'CTF competition continuous'},
-        {time: '04:00 pm', text: 'CTF competition Ends'},
-        {time: '04:30 pm - 08:00 pm', text: 'Closing Ceremony'},
+        {time: '12:00 am - 06:00 pm', text: 'CTF competition continuous'},
+        {time: '06:00 pm', text: 'CTF competition Ends'},
+        {time: '06:30 pm - 08:00 pm', text: 'Closing Ceremony'},
     ],
   }
   

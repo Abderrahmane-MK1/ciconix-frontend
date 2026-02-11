@@ -88,11 +88,40 @@ const Login = () => {
                 window.location.href = '/dashboard';
             }
 
-        } catch (error) {
+        } catch (error) {  
+            console.log("Full error object:", error);
+            console.log("Error response:", error.response);
+            console.log("Error data:", error.response?.data);
+
+    
             if(error.response) {
-                setErrorMessage(error.response.data.errors || 'Login failed. Please check your credentials.');
+                const errorData = error.response.data;
+    
+                if (errorData.non_field_errors) {
+                    setErrorMessage(errorData.non_field_errors[0]);
+                } else if (typeof errorData === 'object') {
+                    const firstKey = Object.keys(errorData)[0];
+                    if (firstKey && errorData[firstKey]) {
+                         if (Array.isArray(errorData[firstKey])) {
+                            setErrorMessage(`${firstKey}: ${errorData[firstKey][0]}`);
+                        } else {
+                            setErrorMessage(errorData[firstKey]);
+                        }
+                    } else {
+                        setErrorMessage('Login failed. Please check your credentials.');
+                    }
+                }
+                else if (typeof errorData === 'string') {
+                    setErrorMessage(errorData);
+                }
+                else if (errorData.detail) {
+                    setErrorMessage(errorData.detail);
+                }
+                else {
+                    setErrorMessage('Login failed. Please check your credentials.');
+                }
             } else {
-                setErrorMessage('Network error. Please check your connection.')
+                setErrorMessage('Network error. Please check your connection.');
             }
         } finally {
             setLoading(false);
