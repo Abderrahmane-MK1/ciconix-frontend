@@ -91,6 +91,7 @@ const Ctf_Platform = () => {
             </div>
 
             <div className='CTF-platform'>
+              {/* add ctf link  */}
               <a href="ctf platform link" className='CTF-link'>
                 <button type='submit' className='CTF-btn'>Go to CTF Platform</button>
               </a>

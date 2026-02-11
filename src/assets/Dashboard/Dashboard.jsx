@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axiosInstance from '../../Utils/axiosInstance'
 import { PiRankingBold } from "react-icons/pi";
 import { GoPeople } from "react-icons/go";
-import { FaFontAwesomeFlag } from "react-icons/fa";
+import { FaFontAwesomeFlag, FaTrophy, FaEnvelope, FaCalendarAlt, FaIdBadge } from "react-icons/fa";
 import { FiShield } from "react-icons/fi";
-import { GrAnnounce } from "react-icons/gr";
 import './Dashboard.css'
 import { useNavigate } from 'react-router-dom';
-import { checkAuth } from '../../Utils/auth';
+import { checkAuth} from '../../Utils/auth';
 
 const Dashboard = () => {
 
-  const [announcements, setAnnouncements] = useState([])
-  const [teamName, setTeamName] = useState('Your team') 
+  const [teamData, setTeamData] = useState({
+    team_name: 'Your team',
+    email: '',
+    ctfd_team_id: '',
+    created_at: '',
+    ctfd_score: 0,
+    project_score: 0,
+    token_score: 0,
+    total_score: 0
+  }) 
+
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
-  const currentDay = 2
+  const currentDay = 1
 
   const schedule = {
     1: [
@@ -32,7 +41,6 @@ const Dashboard = () => {
         {time: '10:00 pm', text: 'CTF Competition Begins (18 hours)'},
         {time: '10:00 pm - Next Day ', text: 'CTF Competition continuous'}
     ],
-
     3: [
         {time: '12:00 am - 04:00 pm', text: 'CTF competition continuous'},
         {time: '04:00 pm', text: 'CTF competition Ends'},
@@ -67,70 +75,103 @@ const Dashboard = () => {
     }
   ]
 
+  // get team profile infos
+  const fetchTeamProfile = async () => {
 
-   const staticAnnouncements = [
-    { id: 1, message: 'CTF challenges are now live! Submit your flags before the deadline.', time: '10 minutes ago' },
-    { id: 2, message: 'Workshop on Web Security starts in 30 minutes at Hall B.', time: '25 minutes ago' },
-    { id: 3, message: 'Congratulations to Team Cypher for reaching 500 points!', time: '1 hour ago' },
-    { id: 4, message: 'Day 2 schedule has been updated. Check the schedule tab for details.', time: '2 hours ago' }
-   ]
-
-   const getAnnouncements = async () => {
     try {
-      const res = await axios.get('/api/getAnnouncement')
-    
-      setAnnouncements(staticAnnouncements)
-    //   if (res.status === 200 && res.data.length > 0) {
-    //     setAnnouncements(res.data)
-    //   } else {
-    //     setAnnouncements(staticAnnouncements)
-    //   }
+      setLoading(true)
+
+      const res = await axiosInstance.get('/api/teams/profile/')
+
+      console.log('profile response: ', res.data)
+      
+      if (res.data.success) {
+        setTeamData({
+          team_name: res.data.data.team_name || 'Your team',
+          email: res.data.data.email || '',
+          ctfd_team_id: res.data.data.ctfd_team_id || '',
+          created_at: res.data.data.created_at || '',
+          ctfd_score: res.data.data.ctfd_score || 0,
+          project_score: res.data.data.project_score || 0,
+          token_score: res.data.data.token_score || 0,
+          total_score: res.data.data.total_score || 0
+        })
+      }
     } catch (error) {
-      console.error('Error fetching announcements:', error)
-      setAnnouncements(staticAnnouncements)
+      console.error('Error fetching team profile:', error)
+      console.log('error status "profile"', error.response.status)
+      const savedTeamName = localStorage.getItem('team_name')
+
+      // adding just team name
+      if (savedTeamName) {
+        setTeamData(prev => ({ ...prev, team_name: savedTeamName }))
+      }
+    } finally {
+      setLoading(false)
     }
   }
 
   useEffect(() => {
-    // checkAuth(); 
-    // const savedTeamName = localStorage.getItem('team_name');
-    // if (savedTeamName) {
-    //   setTeamName(savedTeamName);
-    // }
-
-    getAnnouncements();
+    checkAuth(); //n7iha m3a tali
+    fetchTeamProfile()
   }, [])
 
-    const goToPage = (card) => {
-        if(card.title === 'CTF Platform') {
-            navigate('/ctf-platform')
-        } 
-        else if(card.title === 'Submit Flags') { 
-            navigate('/submit-token') 
-        }
-        else if(card.title === 'Submit Project') {
-            navigate('/submit-project') 
-        }
-        else if(card.title === 'Leaderboard') { 
-            navigate('/leaderboard') 
-        } 
+  const goToPage = (card) => {
+    if(card.title === 'CTF Platform') {
+      navigate('/ctf-platform')
+    } 
+    else if(card.title === 'Submit Flags') { 
+      navigate('/submit-token') 
     }
+    else if(card.title === 'Submit Project') {
+      navigate('/submit-project') 
+    }
+    else if(card.title === 'Leaderboard') { 
+      navigate('/leaderboard') 
+    } 
+  }
 
+  // function to make the time readable
+  const formatDate = (dateString) => {
+    if (!dateString) return 'Not available'
+    try {
 
+      // turn the stored date into a readable date
+      const date = new Date(dateString)
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    } catch {
+      return dateString
+    }
+  }
 
   const currentSchedule = schedule[currentDay] || schedule[1]
- 
+
+  if (loading) {
+    return (
+      <div className='dashboard-container loading'>
+        <div className="loading-spinner"></div>
+        <p>Loading ...</p>
+      </div>
+    )
+  }
 
   return (
     <div className='dashboard-container'>
         <section className='dashboard-header-section'>
-            <h2>Welcome {teamName}</h2>
+            <h2>Welcome, {teamData.team_name}!</h2>
+            <p className="team-subtitle">Track your progress and performance</p>
         </section>
 
         <section className='pages-section'>
             <div className='pages-grid'>
                 {pagerCards.map((card) => (
-                    <article key={card.id} className='page-card'  onClick={() => goToPage(card)}>
+                    <article key={card.id} className='page-card' onClick={() => goToPage(card)}>
                         <div className='card-icon'>{card.icon}</div>
                         <h4>{card.title}</h4>
                         <p>{card.description}</p>
@@ -140,18 +181,68 @@ const Dashboard = () => {
         </section>
 
         <div className='content-grid'>        
-            <section className='announcements'>
-                <h3>Live Announcements</h3>
-                <div className='announcements-list'>
-                    {announcements.map((announcement) => (
-                        <div key={announcement.id} className='announcement-row'>
-                            <div className='announcement-title'>
-                                <GrAnnounce size={20} className='announcement-icon' />
-                                <p className='announcement-message'>{announcement.message}</p>
-                            </div>
-                            <p className='announcement-time'>{announcement.time}</p>
-                        </div>
-                    ))}
+            <section className='team-profile-section'>
+                <div className="profile-header">
+                  <h3>
+                    <FaIdBadge className="profile-icon" />
+                    Team Profile
+                  </h3>
+                  <span className="team-id">ID: {teamData.ctfd_team_id || 'Not assigned'}</span>
+                </div>
+                
+                <div className="profile-details">
+                  <div className="profile-item">
+                    <FaEnvelope size={20}  className="item-icon" />
+                    <div>
+                      <span className="item-label">Email</span>
+                      <span className="item-value">{teamData.email || 'Not provided'}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="profile-item">
+                    <FaCalendarAlt  size={20} className="item-icon" />
+                    <div>
+                      <span className="item-label">Registered Since</span>
+                      <span className="item-value">{formatDate(teamData.created_at)}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="scores-section">
+                  <h4>Current Scores</h4>
+                  <div className="scores-grid">
+                    <div className="score-card ctfd-score">
+                      <FaTrophy size={30} className="score-icon" />
+                      <div className="score-content">
+                        <span className="score-label">CTF Score</span>
+                        <span className="score-value">{teamData.ctfd_score} pts</span>
+                      </div>
+                    </div>
+                    
+                    <div className="score-card project-score">
+                      <GoPeople size={30} className="score-icon" />
+                      <div className="score-content">
+                        <span className="score-label">Project Score</span>
+                        <span className="score-value">{teamData.project_score} pts</span>
+                      </div>
+                    </div>
+
+                    <div className="score-card token-score">
+                      <FaFontAwesomeFlag size={30} className="score-icon"/> 
+                      <div className="score-content">
+                        <span className="score-label">Token Score</span>
+                        <span className="score-value">{teamData.token_score} pts</span>
+                      </div>
+                    </div>
+                    
+                    <div className="score-card total-score">
+                      <PiRankingBold size={30} className="score-icon" />
+                      <div className="score-content">
+                        <span className="score-label">Total Score</span>
+                        <span className="score-value">{teamData.total_score} pts</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </section>
 
