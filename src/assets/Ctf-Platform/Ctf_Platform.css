@@ -228,3 +228,715 @@
   font-family: 'Inter', sans-serif;
   letter-spacing: 0px;
 }
+
+
+@media (max-width: 400px) {
+  .CTF-platfrom-page {
+    background: rgba(36, 14, 16, 1);
+    padding: 0px 30px; /* Increased from 10px for better spacing */
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 50px; /*  mobile */
+    margin-top: 90px; /* mobile */
+    width: 100%;
+    padding: 0; /* Remove fixed padding-left */
+  }
+
+  .header h2 {
+   
+    font-family: 'IM FELL English', serif;
+    font-weight: 400;
+    font-size: clamp(18px, 6vw, 40px); /* Responsive font size */
+    text-align: center;
+    width: 100%;
+   
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: rgba(249, 228, 192, 1);
+    margin: 0 auto 10px;
+  }
+
+  .header p {
+    font-family: 'IM FELL English', serif;
+    font-weight: 400;
+    font-size: clamp(13px, 3vw, 18px); /* Responsive font size */
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0px;
+    color: rgba(249, 228, 192, 1);
+  }
+
+  .Details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    width: 100%; /* Changed from fixed 480px */
+    margin-bottom: 32px;
+  }
+
+  .detail {
+    background: rgba(27, 11, 13, 1);
+    border: 1px solid rgba(113, 16, 22, 1);
+    border-radius: 22px;
+    padding: 24px; /* Reduced for mobile */
+    width: 100%;
+    max-width: 320px;
+    transition: transform 0.3s ease; /* Fixed typo: was "1" should be "0.3s" */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 44px 0px rgba(152, 8, 17, 0.66);
+  }
+
+  .detail h3 {
+    font-size: clamp(28px, 7vw, 35px); /* Responsive */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 16px;
+  }
+
+  .detail p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 4vw, 17px); /* Responsive */
+    line-height: 1.6;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 1);
+    text-align: start;
+  }
+
+  .detail-icon {
+    color: rgba(113, 16, 22, 1);
+    margin-bottom: 16px;
+  }
+
+  .instructions-section {
+    background: rgba(27, 11, 13, 1);
+    border-radius: 22px;
+    padding: 24px; /* Reduced for mobile */
+    border: 1px solid rgba(113, 16, 22, 1);
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .instructions-section h3 {
+    font-size: clamp(26px, 7vw, 33px); /* Responsive */
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    padding-bottom: 16px;
+  }
+
+  .instructions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .instruction {
+    display: flex;
+    gap: 20px; /* Reduced from 30px for mobile */
+    align-items: flex-start;
+    padding-bottom: 20px;
+  }
+
+  .instruction:last-child {
+    padding-bottom: 0;
+  }
+
+  .instruction-number {
+    width: 50px; /* Reduced from 60px */
+    height: 50px;
+    background: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif; /* Fixed typo */
+    flex-shrink: 0;
+  }
+
+  .instruction-content {
+    flex: 1;
+    text-align: left;
+  }
+
+  .instruction-content h4 {
+    font-size: clamp(18px, 5vw, 22px); /* Responsive */
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+  }
+
+  .instruction-content > p {
+    color: rgba(255, 255, 255, 0.43);
+    font-size: clamp(14px, 4vw, 16px); /* Responsive */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .credentials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(113, 16, 22, 0.31);
+  }
+
+  .icon {
+    color: rgba(249, 228, 192, 1);
+  }
+
+  .credential {
+    display: flex;
+    gap: 15px;
+  }
+
+  .credential .content h6 {
+    font-size: clamp(15px, 4vw, 17px); /* Responsive */
+    color: rgb(255, 255, 255);
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 1.4;
+  }
+
+  .credential .content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0px;
+    margin: 0;
+  }
+
+  .CTF-btn {
+    background: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 11px;
+    padding: 18px 30px; /* Reduced for mobile */
+    width: 100%;
+    font-size: clamp(20px, 5vw, 25px); /* Responsive */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .CTF-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 22px 0px rgba(113, 16, 22, 1);
+  }
+
+  .CTF-platform p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(14px, 4vw, 16px); /* Responsive */
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+
+@media (min-width: 401px) and (max-width:480px){
+  .CTF-platfrom-page {
+    background: rgba(36, 14, 16, 1);
+    padding: 0px 20px; /* Increased from 10px for better spacing */
+    width: 100%;
+    margin: 25px;
+    min-height: 100vh;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 50px; /*  mobile */
+    margin-top: 90px; /* mobile */
+    width: 100%;
+    padding: 0; /* Remove fixed padding-left */
+  }
+
+  .header h2 {
+   
+    font-family: 'IM FELL English', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 7vw, 40px); /* Responsive font size */
+    text-align: center;
+    width: 100%;
+   
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: rgba(249, 228, 192, 1);
+    margin: 0 auto 10px;
+  }
+
+  .header p {
+    font-family: 'IM FELL English', serif;
+    font-weight: 400;
+    font-size: clamp(13px, 4vw, 18px); /* Responsive font size */
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0px;
+    color: rgba(249, 228, 192, 1);
+  }
+
+  .Details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 350px;
+    width: 100%; /* Changed from fixed 480px */
+    margin-bottom: 32px;
+  }
+
+  .detail {
+    background: rgba(27, 11, 13, 1);
+    border: 1px solid rgba(113, 16, 22, 1);
+    border-radius: 22px;
+    padding: 24px; /* Reduced for mobile */
+    width: 100%;
+    transition: transform 0.3s ease; /* Fixed typo: was "1" should be "0.3s" */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 44px 0px rgba(152, 8, 17, 0.66);
+  }
+
+  .detail h3 {
+    font-size: clamp(28px, 7vw, 35px); /* Responsive */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 16px;
+  }
+
+  .detail p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(15px, 4vw, 17px); /* Responsive */
+    line-height: 1.6;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 1);
+    text-align: start;
+  }
+
+  .detail-icon {
+    color: rgba(113, 16, 22, 1);
+    margin-bottom: 16px;
+  }
+
+  .instructions-section {
+    background: rgba(27, 11, 13, 1);
+    border-radius: 22px;
+    padding: 24px; /* Reduced for mobile */
+    border: 1px solid rgba(113, 16, 22, 1);
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .instructions-section h3 {
+    font-size: clamp(26px, 7vw, 33px); /* Responsive */
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    padding-bottom: 16px;
+  }
+
+  .instructions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .instruction {
+    display: flex;
+    gap: 20px; /* Reduced from 30px for mobile */
+    align-items: flex-start;
+    padding-bottom: 20px;
+  }
+
+  .instruction:last-child {
+    padding-bottom: 0;
+  }
+
+  .instruction-number {
+    width: 50px; /* Reduced from 60px */
+    height: 50px;
+    background: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif; /* Fixed typo */
+    flex-shrink: 0;
+  }
+
+  .instruction-content {
+    flex: 1;
+    text-align: left;
+  }
+
+  .instruction-content h4 {
+    font-size: clamp(18px, 5vw, 22px); /* Responsive */
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+  }
+
+  .instruction-content > p {
+    color: rgba(255, 255, 255, 0.43);
+    font-size: clamp(14px, 4vw, 16px); /* Responsive */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .credentials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(113, 16, 22, 0.31);
+  }
+
+  .icon {
+    color: rgba(249, 228, 192, 1);
+  }
+
+  .credential {
+    display: flex;
+    gap: 15px;
+  }
+
+  .credential .content h6 {
+    font-size: clamp(15px, 4vw, 17px); /* Responsive */
+    color: rgb(255, 255, 255);
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 1.4;
+  }
+
+  .credential .content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0px;
+    margin: 0;
+  }
+
+  .CTF-btn {
+    background: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 11px;
+    padding: 18px 30px; /* Reduced for mobile */
+    width: 100%;
+    font-size: clamp(20px, 5vw, 25px); /* Responsive */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .CTF-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 22px 0px rgba(113, 16, 22, 1);
+  }
+
+  .CTF-platform p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(14px, 4vw, 16px); /* Responsive */
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 1059px) {
+  
+  .CTF-platfrom-page {
+    background: rgba(36, 14, 16, 1);
+    padding: 60px clamp(40px, 8vw, 150px); /* Responsive padding */
+    max-width: 1400px;
+    margin: 0px auto;
+    min-height: 100vh;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: clamp(50px, 8vh, 70px); /* Responsive margin */
+    margin-top: clamp(60px, 12vh, 100px);
+  }
+
+  .header h2 {
+    font-family: 'IM FELL English', serif;
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 66px); /* Responsive font */
+    line-height: 1.2; /* Fixed: was 24px which is too small for 66px font */
+    letter-spacing: 0px;
+    max-width: 500px;
+    color: rgba(249, 228, 192, 1);
+    margin-bottom: clamp(30px, 5vh, 50px);
+  }
+
+  .header p {
+    font-family: 'IM FELL English', serif;
+    font-weight: 400;
+      max-width: 500px;
+    font-size: clamp(18px, 2.5vw, 22px); /* Responsive font */
+    line-height: 1.4; /* Better line height */
+    letter-spacing: 0px;
+    color: rgba(249, 228, 192, 1);
+  }
+
+  .Details-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid */
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .detail {
+    background: rgba(27, 11, 13, 1);
+    border: 1px solid rgba(113, 16, 22, 1);
+    border-radius: 22px;
+    padding: clamp(24px, 3vw, 32px); /* Responsive padding */
+    transition: transform 0.3s ease; /* Fixed typo */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 44px 0px rgba(152, 8, 17, 0.66);
+  }
+
+  .detail h3 {
+    font-size: clamp(28px, 4vw, 35px); /* Responsive */
+    font-family: 'Inter', sans-serif; /* Fixed missing comma */
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 20px;
+  }
+
+  .detail p {
+    font-family: 'Inter', sans-serif; /* Fixed missing comma */
+    font-weight: 400;
+    font-size: clamp(15px, 2vw, 17px); /* Responsive */
+    line-height: 1.6;
+    letter-spacing: 0px;
+    color: rgba(255, 255, 255, 1);
+    text-align: start;
+  }
+
+  .detail-icon {
+    color: rgba(113, 16, 22, 1);
+    margin-bottom: 20px;
+  }
+
+  .instructions-section {
+    grid-column: 1 / -1;
+    background: rgba(27, 11, 13, 1);
+    border-radius: 22px;
+    padding: clamp(24px, 3vw, 30px); /* Responsive padding */
+    border: 1px solid rgba(113, 16, 22, 1);
+    margin-top: 20px;
+  }
+
+  .instructions-section h3 {
+    font-size: clamp(28px, 4vw, 33px); /* Responsive */
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: clamp(30px, 5vh, 40px);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    padding-bottom: 16px;
+  }
+
+  .instructions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .instruction {
+    display: flex;
+    gap: clamp(20px, 3vw, 30px); /* Responsive gap */
+    align-items: flex-start;
+    padding-bottom: 25px;
+  }
+
+  .instruction:last-child {
+    padding-bottom: 0;
+  }
+
+  .instruction-number {
+    width: clamp(50px, 6vw, 60px); /* Responsive size */
+    height: clamp(50px, 6vw, 60px);
+    background: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(18px, 2.5vw, 20px); /* Responsive */
+    font-weight: 700;
+    font-family: 'Inter', sans-serif; /* Fixed typo */
+    flex-shrink: 0;
+  }
+
+  .instruction-content {
+    flex: 1;
+    text-align: left;
+  }
+
+  .instruction-content h4 {
+    font-size: clamp(20px, 2.5vw, 22px); /* Responsive */
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+  }
+
+  .instruction-content > p {
+    color: rgba(255, 255, 255, 0.43);
+    font-size: clamp(14px, 2vw, 16px); /* Responsive */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-family: 'Inter', sans-serif; /* Fixed missing comma */
+  }
+
+  .credentials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: clamp(30px, 4vh, 40px);
+    padding: 25px;
+    border-radius: 22px;
+    background: rgba(113, 16, 22, 0.31);
+  }
+
+  .icon {
+    color: rgba(249, 228, 192, 1);
+  }
+
+  .credential {
+    display: flex;
+    gap: 20px;
+  }
+
+  .credential .content h6 {
+    font-size: clamp(15px, 2vw, 17px); /* Responsive */
+    color: rgb(255, 255, 255);
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 1.4;
+  }
+
+  .credential .content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-family: 'Inter', sans-serif; /* Fixed missing comma */
+    line-height: 1.6;
+    letter-spacing: 0px;
+    margin: 0;
+  }
+
+  .CTF-btn {
+    background: rgba(113, 16, 22, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 11px;
+    padding: clamp(18px, 2.5vw, 22px) clamp(30px, 4vw, 40px); /* Responsive */
+    width: 100%;
+    font-size: clamp(22px, 3vw, 25px); /* Responsive */
+    font-family: 'Inter', sans-serif; /* Fixed missing comma */
+    font-weight: 700;
+    letter-spacing: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .CTF-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 22px 0px rgba(113, 16, 22, 1);
+  }
+
+  .CTF-platform p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(14px, 2vw, 16px); /* Responsive */
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    font-family: 'Inter', sans-serif;
+  }
+}
