@@ -232,52 +232,37 @@
 
 @media (max-width: 400px) {
   .CTF-platfrom-page {
-    background: rgba(36, 14, 16, 1);
-    padding: 0px 30px; /* Increased from 10px for better spacing */
+    padding: 0px 30px; 
     width: 100%;
-    min-height: 100vh;
   }
 
   .header {
-    text-align: center;
-    margin-bottom: 50px; /*  mobile */
-    margin-top: 90px; /* mobile */
+    margin-bottom: 50px;
+    margin-top: 90px;
     width: 100%;
-    padding: 0; /* Remove fixed padding-left */
+    padding: 0;
   }
 
   .header h2 {
-   
-    font-family: 'IM FELL English', serif;
-    font-weight: 400;
     font-size: clamp(18px, 6vw, 40px); /* Responsive font size */
     text-align: center;
     width: 100%;
-   
     line-height: 1.2;
-    letter-spacing: 0px;
-    color: rgba(249, 228, 192, 1);
     margin: 0 auto 10px;
   }
 
   .header p {
-    font-family: 'IM FELL English', serif;
-    font-weight: 400;
-    font-size: clamp(13px, 3vw, 18px); /* Responsive font size */
+    font-size: clamp(13px, 3vw, 18px);
     line-height: 1.4;
     text-align: center;
     width: 100%;
-    letter-spacing: 0px;
-    color: rgba(249, 228, 192, 1);
   }
 
   .Details-section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
-    width: 100%; /* Changed from fixed 480px */
-    margin-bottom: 32px;
+    width: 100%;
   }
 
   .detail {
