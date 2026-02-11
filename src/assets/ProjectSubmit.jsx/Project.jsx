@@ -33,7 +33,9 @@ const Project = () => {
 
     try {
 
-      const res = await axiosInstance.get('/api/projects/submit/')
+      const res = await axiosInstance.post('/api/projects/submit/', {
+        project_link: link
+      });
   
       if (res.data.success) {
         setSuccessMessage(res.data.message || 'Project submitted successfully!');

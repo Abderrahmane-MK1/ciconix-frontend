@@ -97,7 +97,9 @@ const TokenSubmit = () => {
     setSuccessMessage('');
     
     try {
-       const res = await axiosInstance.get('/api/tokens/submit/')
+       const res = await axiosInstance.post('/api/tokens/submit/', {
+        token: token
+       })
 
        console.log('Submit response:', res.data);
 

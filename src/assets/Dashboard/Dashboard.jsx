@@ -17,6 +17,7 @@ const Dashboard = () => {
     created_at: '',
     ctfd_score: 0,
     project_score: 0,
+    token_score: 0,
     total_score: 0
   }) 
 
@@ -92,6 +93,7 @@ const Dashboard = () => {
           created_at: res.data.data.created_at || '',
           ctfd_score: res.data.data.ctfd_score || 0,
           project_score: res.data.data.project_score || 0,
+          token_score: res.data.data.token_score || 0,
           total_score: res.data.data.total_score || 0
         })
       }
@@ -222,6 +224,14 @@ const Dashboard = () => {
                       <div className="score-content">
                         <span className="score-label">Project Score</span>
                         <span className="score-value">{teamData.project_score} pts</span>
+                      </div>
+                    </div>
+
+                    <div className="score-card token-score">
+                      <FaFontAwesomeFlag size={30} className="score-icon"/> 
+                      <div className="score-content">
+                        <span className="score-label">Token Score</span>
+                        <span className="score-value">{teamData.token_score} pts</span>
                       </div>
                     </div>
                     
