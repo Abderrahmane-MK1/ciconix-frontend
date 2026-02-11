@@ -5,6 +5,11 @@ body {
   color: #F9E4C0;
   font-family: 'Inter', sans-serif;
   margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .leaderboard-wrapper {
@@ -13,7 +18,6 @@ body {
   align-items: center;
   padding: 60px 20px;
 }
-
 
 .main-title {
   font-family: 'IM Fell English', serif;
@@ -31,13 +35,13 @@ body {
   margin: 10px auto 0 auto;
 }
 
-
 .top-three-section {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 30px;
   margin: 100px 0;
+  flex-wrap: wrap;
 }
 
 .card-container {
@@ -52,13 +56,11 @@ body {
   display: block;
 }
 
-
 .decoration {
   position: absolute;
   z-index: 15;
   pointer-events: none;
 }
-
 
 .link {
   top: -20px;
@@ -67,21 +69,19 @@ body {
   width: 60px;
 }
 
-
 .pin {
   top: 10px;
   right: 15px;
   width: 35px;
 }
 
-
 .loop {
   top: 65px;
   left: 25px;
   width: 40px;
   opacity: 0.4; 
-
 }
+
 .stamp {
   position: absolute;
   z-index: 20;
@@ -91,10 +91,12 @@ body {
 .stamp-c1 { bottom: 25px; right: 0px; width: 160px; transform: rotate(-10deg); }
 .stamp-c2 { bottom: -15px; right: -20px; width: 155px; transform: rotate(-5deg); }
 
-
 .card-content {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,14 +114,31 @@ body {
   margin: 10px 0;
 }
 
-.rank-number { font-family: 'IM Fell English', serif; font-size: 38px; }
-.team-name-display { font-family: 'IM Fell English', serif; font-size: 32px; margin: 0; }
+.rank-number { 
+  font-family: 'IM Fell English', serif; 
+  font-size: 38px; 
+}
 
+.team-name-display { 
+  font-family: 'IM Fell English', serif; 
+  font-size: 32px; 
+  margin: 0; 
+}
 
-.rotate-left { transform: rotate(-6deg) translateY(30px); z-index: 1; }
-.center-card { transform: translateY(-15px); z-index: 10; }
-.rotate-right { transform: rotate(6deg) translateY(45px); z-index: 1; }
+.rotate-left { 
+  transform: rotate(-6deg) translateY(30px); 
+  z-index: 1; 
+}
 
+.center-card { 
+  transform: translateY(-15px); 
+  z-index: 10; 
+}
+
+.rotate-right { 
+  transform: rotate(6deg) translateY(45px); 
+  z-index: 1; 
+}
 
 .table-container {
   width: 100%;
@@ -131,13 +150,627 @@ body {
   margin-top: 50px;
 }
 
-.leaderboard-table { width: 100%; border-collapse: collapse; }
-.leaderboard-table th { background: rgba(74, 10, 14, 0.8); padding: 25px; text-align: left; }
-.leaderboard-table td { padding: 18px 25px; border-bottom: 1px solid rgba(113, 16, 22, 0.4); }
+.leaderboard-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
 
-.footer-quote { margin-top: 80px; text-align: center; font-family: 'IM Fell English', serif; }
-#data { font-size: 30px; margin-bottom: 5px; }
-#sherlock { font-size: 20px; opacity: 0.8; }
+.leaderboard-table th { 
+  background: rgba(74, 10, 14, 0.8); 
+  padding: 25px; 
+  text-align: left; 
+}
+
+.leaderboard-table td { 
+  padding: 18px 25px; 
+  border-bottom: 1px solid rgba(113, 16, 22, 0.4); 
+}
+
+.footer-quote { 
+  margin-top: 80px; 
+  text-align: center; 
+  font-family: 'IM Fell English', serif; 
+}
+
+#data { 
+  font-size: 30px; 
+  margin-bottom: 5px; 
+}
+
+#sherlock { 
+  font-size: 20px; 
+  opacity: 0.8; 
+}
+
+/* ============================================ */
+/* STANDARD RESPONSIVE BREAKPOINTS */
+/* ============================================ */
+
+/* 1. Large Desktops (1200px and below) */
+@media (max-width: 1200px) {
+  .leaderboard-wrapper {
+    padding: 55px 18px;
+  }
+
+  .main-title {
+    font-size: 60px;
+  }
+
+  .subtitle {
+    font-size: 19px;
+    max-width: 550px;
+  }
+
+  .top-three-section {
+    margin: 90px 0;
+    gap: 25px;
+  }
+
+  .card-container {
+    width: 340px;
+    height: 368px;
+  }
+
+  .pfp-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .rank-number {
+    font-size: 36px;
+  }
+
+  .team-name-display {
+    font-size: 30px;
+  }
+
+  .stamp-c3 { width: 135px; }
+  .stamp-c1 { width: 145px; }
+  .stamp-c2 { width: 140px; }
+
+  .table-container {
+    max-width: 900px;
+  }
+
+  .leaderboard-table th {
+    padding: 22px;
+  }
+
+  .leaderboard-table td {
+    padding: 16px 22px;
+  }
+
+  #data {
+    font-size: 28px;
+  }
+
+  #sherlock {
+    font-size: 19px;
+  }
+}
+
+/* 2. Tablets Landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .leaderboard-wrapper {
+    padding: 50px 16px;
+  }
+
+  .main-title {
+    font-size: 54px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    max-width: 500px;
+  }
+
+  .top-three-section {
+    margin: 80px 0;
+    gap: 22px;
+  }
+
+  .card-container {
+    width: 310px;
+    height: 335px;
+  }
+
+  .pfp-img {
+    width: 130px;
+    height: 130px;
+    border: 3px solid #240E10;
+  }
+
+  .rank-number {
+    font-size: 34px;
+  }
+
+  .team-name-display {
+    font-size: 28px;
+  }
+
+  .link {
+    width: 55px;
+  }
+
+  .pin {
+    width: 32px;
+  }
+
+  .loop {
+    width: 36px;
+  }
+
+  .stamp-c3 { width: 125px; }
+  .stamp-c1 { width: 135px; }
+  .stamp-c2 { width: 130px; }
+
+  .table-container {
+    max-width: 800px;
+  }
+
+  .leaderboard-table th {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .leaderboard-table td {
+    padding: 15px 20px;
+    font-size: 15px;
+  }
+
+  .footer-quote {
+    margin-top: 70px;
+  }
+
+  #data {
+    font-size: 26px;
+  }
+
+  #sherlock {
+    font-size: 18px;
+  }
+}
+
+/* 3. Tablets Portrait (768px and below) */
+@media (max-width: 768px) {
+  .leaderboard-wrapper {
+    padding: 45px 14px;
+  }
+
+  .main-title {
+    font-size: 48px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    max-width: 450px;
+  }
+
+  .top-three-section {
+    margin: 70px 0;
+    gap: 20px;
+  }
+
+  .card-container {
+    width: 280px;
+    height: 303px;
+  }
+
+  .pfp-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .rank-number {
+    font-size: 32px;
+  }
+
+  .team-name-display {
+    font-size: 26px;
+  }
+
+  .link {
+    width: 50px;
+    top: -18px;
+  }
+
+  .pin {
+    width: 30px;
+    top: 8px;
+    right: 12px;
+  }
+
+  .loop {
+    width: 34px;
+    top: 55px;
+    left: 20px;
+  }
+
+  .stamp-c3 { width: 115px; bottom: 35px; right: -20px; }
+  .stamp-c1 { width: 125px; bottom: 22px; right: -2px; }
+  .stamp-c2 { width: 120px; bottom: -12px; right: -18px; }
+
+  .rotate-left {
+    transform: rotate(-6deg) translateY(25px);
+  }
+
+  .center-card {
+    transform: translateY(-12px);
+  }
+
+  .rotate-right {
+    transform: rotate(6deg) translateY(38px);
+  }
+
+  .table-container {
+    max-width: 700px;
+    margin-top: 45px;
+    border-radius: 16px;
+  }
+
+  .leaderboard-table th {
+    padding: 18px;
+    font-size: 14px;
+  }
+
+  .leaderboard-table td {
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+
+  .footer-quote {
+    margin-top: 60px;
+  }
+
+  #data {
+    font-size: 24px;
+  }
+
+  #sherlock {
+    font-size: 17px;
+  }
+}
+
+/* 4. Large Mobile (640px and below) */
+@media (max-width: 640px) {
+  .leaderboard-wrapper {
+    padding: 40px 12px;
+  }
+
+  .main-title {
+    font-size: 42px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    max-width: 400px;
+  }
+
+  .top-three-section {
+    margin: 60px 0;
+    gap: 18px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-container {
+    width: 300px;
+    height: 324px;
+  }
+
+  .pfp-img {
+    width: 125px;
+    height: 125px;
+  }
+
+  .rank-number {
+    font-size: 34px;
+  }
+
+  .team-name-display {
+    font-size: 27px;
+  }
+
+  .rotate-left,
+  .center-card,
+  .rotate-right {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  .center-card {
+    order: 1;
+  }
+
+  .rotate-left {
+    order: 2;
+  }
+
+  .rotate-right {
+    order: 3;
+  }
+
+  .stamp-c3 { width: 120px; }
+  .stamp-c1 { width: 130px; }
+  .stamp-c2 { width: 125px; }
+
+  .table-container {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .leaderboard-table th {
+    padding: 16px 14px;
+    font-size: 13px;
+  }
+
+  .leaderboard-table td {
+    padding: 13px 14px;
+    font-size: 13px;
+  }
+
+  .footer-quote {
+    margin-top: 55px;
+  }
+
+  #data {
+    font-size: 22px;
+  }
+
+  #sherlock {
+    font-size: 16px;
+  }
+}
+
+/* 5. Mobile (480px and below) */
+@media (max-width: 480px) {
+  .leaderboard-wrapper {
+    padding: 35px 12px;
+  }
+
+  .main-title {
+    font-size: 38px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    max-width: 90%;
+    padding: 0 10px;
+  }
+
+  .top-three-section {
+    margin: 50px 0;
+    gap: 16px;
+  }
+
+  .card-container {
+    width: 280px;
+    height: 303px;
+  }
+
+  .pfp-img {
+    width: 115px;
+    height: 115px;
+    border: 3px solid #240E10;
+  }
+
+  .rank-number {
+    font-size: 32px;
+  }
+
+  .team-name-display {
+    font-size: 25px;
+  }
+
+  .link {
+    width: 48px;
+    top: -16px;
+  }
+
+  .pin {
+    width: 28px;
+    top: 7px;
+    right: 10px;
+  }
+
+  .loop {
+    width: 32px;
+    top: 50px;
+    left: 18px;
+  }
+
+  .stamp-c3 { width: 110px; bottom: 32px; right: -18px; }
+  .stamp-c1 { width: 120px; bottom: 20px; right: 0; }
+  .stamp-c2 { width: 115px; bottom: -10px; right: -16px; }
+
+  .table-container {
+    margin-top: 38px;
+    border-radius: 14px;
+  }
+
+  .leaderboard-table th {
+    padding: 14px 12px;
+    font-size: 12px;
+  }
+
+  .leaderboard-table td {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .footer-quote {
+    margin-top: 50px;
+    padding: 0 10px;
+  }
+
+  #data {
+    font-size: 20px;
+  }
+
+  #sherlock {
+    font-size: 15px;
+  }
+}
+
+/* 6. Small Mobile (375px and below) */
+@media (max-width: 375px) {
+  .leaderboard-wrapper {
+    padding: 30px 10px;
+  }
+
+  .main-title {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .top-three-section {
+    margin: 45px 0;
+    gap: 14px;
+  }
+
+  .card-container {
+    width: 260px;
+    height: 281px;
+  }
+
+  .pfp-img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .rank-number {
+    font-size: 30px;
+  }
+
+  .team-name-display {
+    font-size: 23px;
+  }
+
+  .link {
+    width: 45px;
+    top: -14px;
+  }
+
+  .pin {
+    width: 26px;
+    top: 6px;
+    right: 9px;
+  }
+
+  .loop {
+    width: 30px;
+    top: 45px;
+    left: 16px;
+  }
+
+  .stamp-c3 { width: 100px; bottom: 30px; right: -16px; }
+  .stamp-c1 { width: 110px; bottom: 18px; right: 2px; }
+  .stamp-c2 { width: 105px; bottom: -8px; right: -14px; }
+
+  .table-container {
+    margin-top: 35px;
+  }
+
+  .leaderboard-table th {
+    padding: 12px 10px;
+    font-size: 11px;
+  }
+
+  .leaderboard-table td {
+    padding: 11px 10px;
+    font-size: 11px;
+  }
+
+  .footer-quote {
+    margin-top: 45px;
+  }
+
+  #data {
+    font-size: 19px;
+  }
+
+  #sherlock {
+    font-size: 14px;
+  }
+}
+
+/* 7. Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .leaderboard-wrapper {
+    padding: 28px 8px;
+  }
+
+  .main-title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .top-three-section {
+    margin: 40px 0;
+    gap: 12px;
+  }
+
+  .card-container {
+    width: 250px;
+    height: 270px;
+  }
+
+  .pfp-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .rank-number {
+    font-size: 28px;
+  }
+
+  .team-name-display {
+    font-size: 22px;
+  }
+
+  .link {
+    width: 42px;
+  }
+
+  .pin {
+    width: 24px;
+  }
+
+  .loop {
+    width: 28px;
+  }
+
+  .stamp-c3 { width: 95px; }
+  .stamp-c1 { width: 105px; }
+  .stamp-c2 { width: 100px; }
+
+  .leaderboard-table th {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  .leaderboard-table td {
+    padding: 10px 8px;
+    font-size: 10px;
+  }
+
+  .footer-quote {
+    margin-top: 40px;
+  }
+
+  #data {
+    font-size: 18px;
+  }
+
+  #sherlock {
+    font-size: 13px;
+  }
+}
 
 /* Tablet: 768px and below */
 @media (max-width: 768px) {

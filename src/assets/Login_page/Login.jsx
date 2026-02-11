@@ -112,10 +112,10 @@ const Login = () => {
                     }
                 }
                 else if (typeof errorData === 'string') {
-                    setErrorMessage(errorData);
+                    setErrorMessage('Login failed. Please try again');
                 }
                 else if (errorData.detail) {
-                    setErrorMessage(errorData.detail);
+                    setErrorMessage('Login failed. Please try again');
                 }
                 else {
                     setErrorMessage('Login failed. Please check your credentials.');

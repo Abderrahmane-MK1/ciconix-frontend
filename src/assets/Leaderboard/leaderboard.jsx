@@ -107,13 +107,13 @@ function Leaderboard() {
       {/* Top 3 */}
       <div className="top-three-section">
         <RankCard
-          rank={3}
-          team={sortedTeams[2]}
-          rectImg="rectangle3.png"
-          pfpImg="pfp3.png"
-          stampImg="c3.png"
-          cardClass="rotate-left"
-          stampClass="stamp-c3"
+          rank={2}
+          team={sortedTeams[1]}
+          rectImg="rectangle2.png"
+          pfpImg="pfp2.png"
+          stampImg="c2.png"
+          cardClass="rotate-right"
+          stampClass="stamp-c2"
         />
 
         <RankCard
@@ -127,14 +127,16 @@ function Leaderboard() {
         />
 
         <RankCard
-          rank={2}
-          team={sortedTeams[1]}
-          rectImg="rectangle2.png"
-          pfpImg="pfp2.png"
-          stampImg="c2.png"
-          cardClass="rotate-right"
-          stampClass="stamp-c2"
+          rank={3}
+          team={sortedTeams[2]}
+          rectImg="rectangle3.png"
+          pfpImg="pfp3.png"
+          stampImg="c3.png"
+          cardClass="rotate-left"
+          stampClass="stamp-c3"
         />
+
+        
       </div>
 
       {/* Table */}

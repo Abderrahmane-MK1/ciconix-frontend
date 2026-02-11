@@ -74,95 +74,309 @@
 }
 
 
+@media (max-width: 1024px) {
+    .footer {
+        padding: 35px 16px 0;
+    }
 
+    .footer_content {
+        gap: 120px;
+        max-width: 950px;
+        padding-bottom: 35px;
+        margin-bottom: 35px;
+    }
 
+    .footer_logo {
+        width: 260px;
+        height: 159px;
+        margin-left: -70px;
+    }
 
+    .contact_infos h3 {
+        font-size: 15.5px;
+        line-height: 26px;
+    }
 
+    .contact_infos p {
+        font-size: 12.5px;
+        line-height: 19px;
+    }
 
+    .follow_us p {
+        font-size: 16px;
+        line-height: 26px;
+    }
 
+    .footer_p {
+        font-size: 12.5px;
+        margin-bottom: 80px;
+    }
 
+    .cic_links {
+        gap: 26px;
+    }
+
+    .icon {
+        margin: 10px;
+        font-size: 20px;
+    }
+}
+
+/* 3. Tablets Portrait (768px and below) */
+@media (max-width: 768px) {
+    .footer {
+        padding: 32px 14px 0;
+    }
+
+    .footer_content {
+        gap: 80px;
+        max-width: 100%;
+        padding-bottom: 32px;
+        margin-bottom: 32px;
+    }
+
+    .footer_logo {
+        width: 240px;
+        height: 146px;
+        margin-left: -60px;
+    }
+
+    .contact_infos h3 {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .contact_infos p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .follow_us p {
+        font-size: 15.5px;
+        line-height: 24px;
+    }
+
+    .footer_p {
+        font-size: 12px;
+        margin-bottom: 70px;
+    }
+
+    .cic_links {
+        gap: 24px;
+    }
+
+    .icon {
+        margin: 9px;
+        font-size: 19px;
+    }
+}
+
+/* 4. Large Mobile (640px and below) */
+@media (max-width: 640px) {
+    .footer {
+        padding: 30px 12px 0;
+    }
+
+    .footer_content {
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer_logo {
+        width: 220px;
+        height: 134px;
+        margin-left: 0;
+    }
+
+    .contact_infos {
+        order: 2;
+    }
+
+    .contact_infos h3 {
+        font-size: 14.5px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .contact_infos p {
+        font-size: 11.5px;
+        line-height: 17px;
+        text-align: center;
+    }
+
+    .follow_us {
+        order: 1;
+    }
+
+    .follow_us p {
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .cic_links {
+        gap: 22px;
+        justify-content: center;
+    }
+
+    .icon {
+        margin: 8px;
+        font-size: 18px;
+    }
+
+    .footer_p {
+        font-size: 11.5px;
+        line-height: 18px;
+        margin-bottom: 60px;
+    }
+}
+
+/* 5. Mobile (480px and below) */
 @media (max-width: 480px) {
-  /* mobile styles */
+    .footer {
+        padding: 28px 12px 0;
+    }
 
-.footer {
-    position: relative;
-    background: rgba(36, 14, 16);
-    color: rgba(249, 228, 192, 1);
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    .footer_content {
+        gap: 28px;
+        padding-bottom: 28px;
+        margin-bottom: 28px;
+    }
+
+    .footer_logo {
+        width: 200px;
+        height: 122px;
+    }
+
+    .contact_infos h3 {
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .contact_infos p {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .follow_us p {
+        font-size: 14.5px;
+        line-height: 21px;
+    }
+
+    .cic_links {
+        gap: 20px;
+    }
+
+    .icon {
+        margin: 7px;
+        font-size: 17px;
+    }
+
+    .footer_p {
+        font-size: 11px;
+        line-height: 17px;
+        margin-bottom: 50px;
+        padding: 0 15px;
+    }
 }
 
-.footer_content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 400px;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) ;
-    margin-bottom: 200px;
-    margin-left: 0px;
+/* 6. Small Mobile (375px and below) */
+@media (max-width: 375px) {
+    .footer {
+        padding: 26px 10px 0;
+    }
+
+    .footer_content {
+        gap: 26px;
+        padding-bottom: 26px;
+        margin-bottom: 26px;
+    }
+
+    .footer_logo {
+        width: 180px;
+        height: 110px;
+    }
+
+    .contact_infos h3 {
+        font-size: 13.5px;
+        line-height: 20px;
+    }
+
+    .contact_infos p {
+        font-size: 10.5px;
+        line-height: 15px;
+    }
+
+    .follow_us p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .cic_links {
+        gap: 18px;
+    }
+
+    .icon {
+        margin: 6px;
+        font-size: 16px;
+    }
+
+    .footer_p {
+        font-size: 10.5px;
+        line-height: 16px;
+        margin-bottom: 45px;
+        padding: 0 12px;
+    }
 }
 
-.footer_logo {
-    width: 200px;
-    height: 100px;
-    margin-left: 0px;
-}
+/* 7. Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .footer {
+        padding: 24px 8px 0;
+    }
 
-.contact_infos h3 {
-    font-family: 'Inter', sans-serif;
-    font-size:16.7px ;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0%;
-    color: rgba(249, 228, 192, 1);
-}
+    .footer_content {
+        gap: 24px;
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+    }
 
-.contact_infos p {
-    font-family: 'Inter', sans-serif;
-    font-size:13.2px ;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0%;
-    color: rgba(255, 255, 255, 0.7);
-}
+    .footer_logo {
+        width: 170px;
+        height: 104px;
+    }
 
-.follow_us p {
-    font-family: 'Inter', sans-serif;
-    font-size:17.2px ;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0%;
-    
-    color: rgba(249, 228, 192, 1);
-    margin-right: 55px;
-}
+    .contact_infos h3 {
+        font-size: 13px;
+        line-height: 19px;
+    }
 
-.footer_p {
-    font-family: 'Inter', sans-serif;
-    font-size:12.9px ;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0%;
-    color:rgba(255, 255, 255, 0.5);
-    text-align: center;
-    margin-bottom: 100px;
-}
+    .contact_infos p {
+        font-size: 10px;
+        line-height: 15px;
+    }
 
-.cic_links {
-    display: flex;
-    gap: 30px;
-}
+    .follow_us p {
+        font-size: 13.5px;
+        line-height: 19px;
+    }
 
-.icon {
-    margin: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 1);
-}
+    .cic_links {
+        gap: 16px;
+    }
 
+    .icon {
+        margin: 5px;
+        font-size: 15px;
+    }
 
-
-
+    .footer_p {
+        font-size: 10px;
+        line-height: 15px;
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
 }

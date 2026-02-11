@@ -6,6 +6,7 @@
     max-width: 1400px;
     margin: 0px auto;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .header {
@@ -130,7 +131,7 @@
   justify-content: center;
   font-size: 20px;
   font-weight: 700;
-  font-family: 'nter', sans-serif;
+  font-family: 'Inter', sans-serif;
   flex-shrink: 0;
 }
 
@@ -175,6 +176,7 @@
 .credential {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .credential .content h6 {
@@ -229,552 +231,479 @@
   letter-spacing: 0px;
 }
 
-@media (max-width: 400px) {
+
+/* Large Desktops (1200px and below) */
+@media (max-width: 1200px) {
   .CTF-platfrom-page {
-    padding: 0px 30px; 
-    width: 100%;
+    padding: 60px 80px;
+    max-width: 100%;
   }
 
   .header {
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
+
+  .header h2 {
+    font-size: 58px;
+  }
+
+  .header p {
+    font-size: 20px;
+  }
+
+  .detail h3 {
+    font-size: 32px;
+  }
+
+  .detail p {
+    font-size: 16px;
+  }
+}
+
+/* Tablets Landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .CTF-platfrom-page {
+    padding: 50px 50px;
+  }
+
+  .header {
+    margin-top: 60px;
     margin-bottom: 50px;
-    margin-top: 90px;
-    width: 100%;
-    padding: 0;
   }
 
   .header h2 {
-    font-size: clamp(18px, 6vw, 40px); 
-    text-align: center;
-    width: 100%;
-    line-height: 1.2;
-    margin: 0 auto 10px;
+    font-size: 52px;
+    line-height: 60px;
   }
 
   .header p {
-    font-size: clamp(13px, 3vw, 18px);
-    line-height: 1.4;
-    text-align: center;
-    width: 100%;
+    font-size: 19px;
+    line-height: 28px;
   }
 
   .Details-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
+    gap: 18px;
   }
 
   .detail {
-   
-    padding: 24px;
-    width: 100%;
-    max-width: 320px;
-    transition: transform 0.3s ease; 
-  }
-
-  
-
-  .detail h3 {
-    font-size: clamp(28px, 7vw, 35px);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .detail p {
-    font-size: clamp(11px, 4vw, 17px); 
-    line-height: 1.6;
-  }
-
-  .detail-icon {
-    margin-bottom: 16px;
-  }
-
-  .instructions-section {
-    padding: 24px; 
-    width: 100%;
-  }
-
-  .instructions-section h3 {
-    font-size: clamp(26px, 7vw, 33px); 
-    margin-bottom: 30px;
-  
-  }
-
-  
-
-  .instruction {
-    gap: 20px; 
-    padding-bottom: 20px;
-  }
-
-  
-
-  .instruction-number {
-    width: 50px; 
-    height: 50px;
-    font-size: 18px;
-  }
-
-  .instruction-content h4 {
-    font-size: clamp(18px, 5vw, 22px); 
-  }
-
-  .instruction-content > p {
-    font-size: clamp(14px, 4vw, 16px); 
-    line-height: 1.5;
-    margin-bottom: 20px;
- 
-  }
-
-  .credentials-grid {
-    gap: 16px;
-    margin-top: 30px;
-    padding: 20px;
-  }
-
-  
-  .credential {
-    gap: 15px;
-  }
-
-  .credential .content h6 {
-    font-size: clamp(15px, 4vw, 17px);
-    line-height: 1.4;
-  }
-
-  .credential .content p {
-    line-height: 1.6;
-  }
-
-  .CTF-btn {
-    padding: 18px 30px; 
-    width: 100%;
-    font-size: clamp(20px, 5vw, 25px); 
-}
-
-  .CTF-platform p {
-        font-size: clamp(14px, 4vw, 16px); 
-    line-height: 1.5;
-  }
-}
-
-
-@media (min-width: 401px) and (max-width:480px){
-  .CTF-platfrom-page {
-    padding: 0px 20px; 
-    
-  }
-
- 
-
-  .header h2 {
-    font-size: clamp(28px, 7vw, 40px); /* Responsive font size */
-  
-  }
-
-  
-  .detail {
-    background: rgba(27, 11, 13, 1);
-    border: 1px solid rgba(113, 16, 22, 1);
-    border-radius: 22px;
-    padding: 24px; /* Reduced for mobile */
-    width: 100%;
-    transition: transform 0.3s ease; /* Fixed typo: was "1" should be "0.3s" */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .detail:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 44px 0px rgba(152, 8, 17, 0.66);
+    padding: 28px;
   }
 
   .detail h3 {
-    font-size: clamp(28px, 7vw, 35px); /* Responsive */
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0px;
-    color: rgba(255, 255, 255, 1);
-    margin-bottom: 16px;
-  }
-
-  .detail p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: clamp(15px, 4vw, 17px); /* Responsive */
-    line-height: 1.6;
-    letter-spacing: 0px;
-    color: rgba(255, 255, 255, 1);
-    text-align: start;
-  }
-
-  .detail-icon {
-    color: rgba(113, 16, 22, 1);
-    margin-bottom: 16px;
+    font-size: 30px;
+    line-height: 36px;
   }
 
   .instructions-section {
-    background: rgba(27, 11, 13, 1);
-    border-radius: 22px;
-    padding: 24px; /* Reduced for mobile */
-    border: 1px solid rgba(113, 16, 22, 1);
-    margin-top: 20px;
-    width: 100%;
+    padding: 28px;
   }
 
   .instructions-section h3 {
-    font-size: clamp(26px, 7vw, 33px); /* Responsive */
-    color: rgba(255, 255, 255, 1);
-    margin-bottom: 30px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0px;
-    padding-bottom: 16px;
-  }
-
-  .instructions-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 30px;
+    font-size: 30px;
+    margin-bottom: 35px;
   }
 
   .instruction {
-    display: flex;
-    gap: 20px; /* Reduced from 30px for mobile */
-    align-items: flex-start;
-    padding-bottom: 20px;
-  }
-
-  .instruction:last-child {
-    padding-bottom: 0;
+    gap: 25px;
   }
 
   .instruction-number {
-    width: 50px; /* Reduced from 60px */
-    height: 50px;
-    background: rgba(113, 16, 22, 1);
-    color: rgba(255, 255, 255, 1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 700;
-    font-family: 'Inter', sans-serif; /* Fixed typo */
-    flex-shrink: 0;
-  }
-
-  .instruction-content {
-    flex: 1;
-    text-align: left;
-  }
-
-  .instruction-content h4 {
-    font-size: clamp(18px, 5vw, 22px); /* Responsive */
-    color: rgba(255, 255, 255, 1);
-    margin-bottom: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0px;
-  }
-
-  .instruction-content > p {
-    color: rgba(255, 255, 255, 0.43);
-    font-size: clamp(14px, 4vw, 16px); /* Responsive */
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .credentials-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: 22px;
-    background: rgba(113, 16, 22, 0.31);
-  }
-
-  .icon {
-    color: rgba(249, 228, 192, 1);
-  }
-
-  .credential {
-    display: flex;
-    gap: 15px;
-  }
-
-  .credential .content h6 {
-    font-size: clamp(15px, 4vw, 17px); /* Responsive */
-    color: rgb(255, 255, 255);
-    margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0px;
-    line-height: 1.4;
-  }
-
-  .credential .content p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 11px;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    letter-spacing: 0px;
-    margin: 0;
+    width: 55px;
+    height: 55px;
+    font-size: 19px;
   }
 
   .CTF-btn {
-    padding: 18px 30px; 
-    width: 100%;
-    font-size: clamp(20px, 5vw, 25px); 
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  }
-
-  .CTF-platform p {
-    font-size: clamp(14px, 4vw, 16px);
-    line-height: 1.5;
+    font-size: 23px;
+    padding: 20px 35px;
   }
 }
 
-
-@media (min-width: 601px) and (max-width: 1059px) {
-  
+/* Tablets Portrait (768px and below) */
+@media (max-width: 768px) {
   .CTF-platfrom-page {
-    background: rgba(36, 14, 16, 1);
-    padding: 60px clamp(40px, 8vw, 150px); /* Responsive padding */
-    max-width: 1400px;
-    margin: 0px auto;
-    min-height: 100vh;
+    padding: 40px 30px;
   }
 
   .header {
-    text-align: center;
-    margin-bottom: clamp(50px, 8vh, 70px); /* Responsive margin */
-    margin-top: clamp(60px, 12vh, 100px);
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .header h2 {
-    font-family: 'IM FELL English', serif;
-    font-weight: 400;
-    font-size: clamp(48px, 7vw, 66px); /* Responsive font */
-    line-height: 1.2; /* Fixed: was 24px which is too small for 66px font */
-    letter-spacing: 0px;
-    max-width: 500px;
-    color: rgba(249, 228, 192, 1);
-    margin-bottom: clamp(30px, 5vh, 50px);
+    font-size: 44px;
+    line-height: 52px;
+    margin-top: 70px;
+    margin-bottom: 35px;
   }
 
   .header p {
-    font-family: 'IM FELL English', serif;
-    font-weight: 400;
-      max-width: 500px;
-    font-size: clamp(18px, 2.5vw, 22px); /* Responsive font */
-    line-height: 1.4; /* Better line height */
-    letter-spacing: 0px;
-    color: rgba(249, 228, 192, 1);
+    font-size: 18px;
+    line-height: 26px;
   }
 
   .Details-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid */
-    gap: 20px;
-    margin-bottom: 32px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
   }
 
   .detail {
-    background: rgba(27, 11, 13, 1);
-    border: 1px solid rgba(113, 16, 22, 1);
-    border-radius: 22px;
-    padding: clamp(24px, 3vw, 32px); /* Responsive padding */
-    transition: transform 0.3s ease; /* Fixed typo */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .detail:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 44px 0px rgba(152, 8, 17, 0.66);
+    padding: 25px;
   }
 
   .detail h3 {
-    font-size: clamp(28px, 4vw, 35px); /* Responsive */
-    font-family: 'Inter', sans-serif; /* Fixed missing comma */
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0px;
-    color: rgba(255, 255, 255, 1);
-    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 16px;
   }
 
   .detail p {
-    font-family: 'Inter', sans-serif; /* Fixed missing comma */
-    font-weight: 400;
-    font-size: clamp(15px, 2vw, 17px); /* Responsive */
-    line-height: 1.6;
-    letter-spacing: 0px;
-    color: rgba(255, 255, 255, 1);
-    text-align: start;
+    font-size: 15px;
+    line-height: 24px;
   }
 
   .detail-icon {
-    color: rgba(113, 16, 22, 1);
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 16px;
   }
 
   .instructions-section {
-    grid-column: 1 / -1;
-    background: rgba(27, 11, 13, 1);
-    border-radius: 22px;
-    padding: clamp(24px, 3vw, 30px); /* Responsive padding */
-    border: 1px solid rgba(113, 16, 22, 1);
-    margin-top: 20px;
+    padding: 25px;
+    margin-top: 16px;
   }
 
   .instructions-section h3 {
-    font-size: clamp(28px, 4vw, 33px); /* Responsive */
-    color: rgba(255, 255, 255, 1);
-    margin-bottom: clamp(30px, 5vh, 40px);
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0px;
-    padding-bottom: 16px;
+    font-size: 28px;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
   }
 
   .instructions-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 18px;
+    margin-bottom: 25px;
   }
 
   .instruction {
-    display: flex;
-    gap: clamp(20px, 3vw, 30px); /* Responsive gap */
-    align-items: flex-start;
-    padding-bottom: 25px;
-  }
-
-  .instruction:last-child {
-    padding-bottom: 0;
+    gap: 20px;
+    padding-bottom: 20px;
   }
 
   .instruction-number {
-    width: clamp(50px, 6vw, 60px); /* Responsive size */
-    height: clamp(50px, 6vw, 60px);
-    background: rgba(113, 16, 22, 1);
-    color: rgba(255, 255, 255, 1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(18px, 2.5vw, 20px); /* Responsive */
-    font-weight: 700;
-    font-family: 'Inter', sans-serif; /* Fixed typo */
-    flex-shrink: 0;
-  }
-
-  .instruction-content {
-    flex: 1;
-    text-align: left;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
   }
 
   .instruction-content h4 {
-    font-size: clamp(20px, 2.5vw, 22px); /* Responsive */
-    color: rgba(255, 255, 255, 1);
-    margin-bottom: 10px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0px;
+    font-size: 20px;
+    margin-bottom: 8px;
   }
 
   .instruction-content > p {
-    color: rgba(255, 255, 255, 0.43);
-    font-size: clamp(14px, 2vw, 16px); /* Responsive */
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: 30px;
-    font-family: 'Inter', sans-serif; /* Fixed missing comma */
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 25px;
   }
 
   .credentials-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: clamp(30px, 4vh, 40px);
-    padding: 25px;
-    border-radius: 22px;
-    background: rgba(113, 16, 22, 0.31);
-  }
-
-  .icon {
-    color: rgba(249, 228, 192, 1);
+    gap: 18px;
+    margin-top: 35px;
+    padding: 22px;
   }
 
   .credential {
-    display: flex;
-    gap: 20px;
+    gap: 16px;
   }
 
   .credential .content h6 {
-    font-size: clamp(15px, 2vw, 17px); /* Responsive */
-    color: rgb(255, 255, 255);
-    margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0px;
-    line-height: 1.4;
-  }
-
-  .credential .content p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 11px;
-    font-family: 'Inter', sans-serif; /* Fixed missing comma */
-    line-height: 1.6;
-    letter-spacing: 0px;
-    margin: 0;
+    font-size: 16px;
   }
 
   .CTF-btn {
-    background: rgba(113, 16, 22, 1);
-    color: rgba(255, 255, 255, 1);
-    border: none;
-    border-radius: 11px;
-    padding: clamp(18px, 2.5vw, 22px) clamp(30px, 4vw, 40px); /* Responsive */
-    width: 100%;
-    font-size: clamp(22px, 3vw, 25px); /* Responsive */
-    font-family: 'Inter', sans-serif; /* Fixed missing comma */
-    font-weight: 700;
-    letter-spacing: 0px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 22px;
+    padding: 18px 32px;
+  }
+
+  .CTF-platform p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile Large (640px and below) */
+@media (max-width: 640px) {
+  .CTF-platfrom-page {
+    padding: 35px 25px;
+  }
+
+  .header {
+    margin-top: 30px;
+    margin-bottom: 35px;
+  }
+
+  .header h2 {
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 30px;
+  }
+
+  .header p {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .detail {
+    padding: 22px;
+  }
+
+  .detail h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .instructions-section {
+    padding: 22px;
+  }
+
+  .instructions-section h3 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+
+  .CTF-btn {
+    font-size: 20px;
+    padding: 16px 28px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .CTF-platfrom-page {
+    padding: 30px 20px;
+  }
+
+  .header {
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+
+  .header h2 {
+    font-size: 34px;
+    line-height: 42px;
+    margin-bottom: 25px;
+  }
+
+  .header p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .Details-section {
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .detail {
+    padding: 20px;
+  }
+
+  .detail h3 {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 14px;
+  }
+
+  .detail p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .detail-icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+
+  .instructions-section {
+    padding: 20px;
+    margin-top: 14px;
+  }
+
+  .instructions-section h3 {
+    font-size: 24px;
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+  }
+
+  .instructions-grid {
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .instruction {
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .instruction-number {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .instruction-content h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .instruction-content > p {
+    font-size: 14px;
+    line-height: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .credentials-grid {
+    gap: 16px;
+    margin-top: 30px;
+    padding: 18px;
+  }
+
+  .credential {
+    gap: 14px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+
+  .credential .content h6 {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .credential .content p {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .CTF-btn {
+    font-size: 18px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
   }
 
   .CTF-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 4px 22px 0px rgba(113, 16, 22, 1);
+    transform: translateY(-3px) scale(1.02);
   }
 
   .CTF-platform p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: clamp(14px, 2vw, 16px); /* Responsive */
-    font-weight: 400;
-    margin: 0;
-    line-height: 1.5;
-    letter-spacing: 0px;
-    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+/* Mobile Small (375px and below) */
+@media (max-width: 375px) {
+  .CTF-platfrom-page {
+    padding: 25px 16px;
+  }
+
+  .header {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+
+  .header h2 {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 20px;
+  }
+
+  .header p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .detail {
+    padding: 18px;
+  }
+
+  .detail h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .detail p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .instructions-section {
+    padding: 18px;
+  }
+
+  .instructions-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .instruction-number {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .instruction-content h4 {
+    font-size: 17px;
+  }
+
+  .instruction-content > p {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .credentials-grid {
+    padding: 16px;
+  }
+
+  .credential .content h6 {
+    font-size: 14px;
+  }
+
+  .CTF-btn {
+    font-size: 17px;
+    padding: 14px 20px;
+  }
+}
+
+/* Mobile Extra Small (360px and below) */
+@media (max-width: 360px) {
+  .CTF-platfrom-page {
+    padding: 20px 14px;
+  }
+
+  .header h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .detail h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .instructions-section h3 {
+    font-size: 20px;
+  }
+
+  .instruction-number {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .CTF-btn {
+    font-size: 16px;
+    padding: 14px 18px;
   }
 }

@@ -57,7 +57,7 @@ const Dashboard = () => {
     },
     {
         id: 2,
-        title: 'Submit Flags',
+        title: 'Submit Tokens',
         description: 'Submit your CTF Flag',
         icon: <FaFontAwesomeFlag />
     },
@@ -120,7 +120,7 @@ const Dashboard = () => {
     if(card.title === 'CTF Platform') {
       navigate('/ctf-platform')
     } 
-    else if(card.title === 'Submit Flags') { 
+    else if(card.title === 'Submit Tokens') { 
       navigate('/submit-token') 
     }
     else if(card.title === 'Submit Project') {

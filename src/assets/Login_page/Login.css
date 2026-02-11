@@ -11,9 +11,10 @@
             rgba(36, 14, 16, 0.85),
             rgba(28, 10, 12, 0.9)
         ),
-        url('/images/lgin-img.jpg') center center / cover no-repeat;
+        url('/images/login.jpg') center center / cover no-repeat;
     overflow: hidden;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .cic-logo {
@@ -48,6 +49,7 @@
     backdrop-filter: blur(8px);
     text-align: center;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .login-ciconix-logo {
@@ -76,7 +78,6 @@
     margin-bottom: 30px;
     letter-spacing: 0.3px;
 }
-
 
 .login-form {
     display: flex;
@@ -107,6 +108,7 @@
     color: rgba(249, 228, 192, 0.9);
     background: rgba(36, 14, 16, 0.7);
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .login-form input:focus {
@@ -210,190 +212,417 @@
     }
 }
 
-@media (max-width: 480px) {
-  .login-page {
-    padding: 0px;
-  }
+/* ============================================ */
+/* STANDARD RESPONSIVE BREAKPOINTS */
+/* ============================================ */
 
-  .cic-logo {
-    top: 80px;
-    left: 140px;
-    width: clamp(120px, 35vw, 160px);
-    }
-
+/* 1. Large Desktops (1200px and below) */
+@media (max-width: 1200px) {
   .login-container {
-    width: 100%;
-    max-width: 300px;
-    min-width: 200px;
-    /* max-width: 350px;
-    min-width: 200px; */
+    width: 60%;
+    min-width: 480px;
   }
 
   .login-selection {
-    border-radius: 16px;
-    padding: 0px 24px 30px;
-    max-width: 100%;
+    padding: 0px 60px 38px;
+  }
+
+  .cic-logo {
+    width: 180px;
   }
 
   .login-ciconix-logo {
-    width: clamp(140px, 40vw, 180px);
-    height: clamp(140px, 40vw, 180px);
-    margin: 0 auto 25px;
+    width: 180px;
+    height: 180px;
   }
 
   .login-selection h2 {
-    font-size: clamp(22px, 6vw, 26px);
-    margin-top: clamp(-60px, -15vw, -70px);
-    line-height: 1.2;
+    font-size: 26px;
+    margin-top: -75px;
   }
-
-  .login-selection p {
-    font-size: clamp(12px, 3.5vw, 14px);
-    margin-bottom: 24px;
-    line-height: 1.4;
-  }
-
-  
-
-  .login-form input {
-    width: 100%;
-    padding: 13px 14px;
-    font-size: clamp(14px, 4vw, 15px);
-    box-sizing: border-box;
-  }
-  .login-form input::placeholder {
-    font-size: clamp(13px, 3.5vw, 14px);
-  }
-
-  .form_group label {
-    font-size: clamp(13px, 3.5vw, 14px);
-    line-height: 1.4;
-    margin-bottom: 6px;
-   
-  }
-
-  .form_group {
-    width: 100%;
-  }
-
-  #login-btn {
-    padding: 15px 28px;
-    font-size: clamp(15px, 4vw, 16px);
-    margin-top: 12px;
-  }
-
-
-  
-
-  .error-message {
-    padding: 12px 14px;
-    border-radius: 8px;
-    margin: 16px 0;
-    font-size: clamp(12px, 3.5vw, 14px);
-    line-height: 1.4;
-  }
-
-
-  .spinner {
-    width: 14px;
-    height: 14px;  
-    margin-right: 6px;
-  }
-
-
 }
 
-
-@media(min-width: 521px)and (max-width:780px) {
+/* 2. Tablets Landscape (1024px and below) */
+@media (max-width: 1024px) {
   .login-page {
-    padding: 20px 16px;
- 
+    padding: 18px;
   }
 
   .cic-logo {
-    top: 20px;
-    left: 20px;
-    width: clamp(120px, 35vw, 160px);
-    }
+    top: 25px;
+    left: 30px;
+    width: 160px;
+  }
 
   .login-container {
-    width: 100%;
-       margin-right: 350px;
-    max-width: 550px;
-    min-width: 200px;
+    width: 70%;
+    min-width: 450px;
   }
 
   .login-selection {
-    border-radius: 16px;
-    padding: 0px 24px 30px;
-    max-width: 100%;
+    padding: 0px 50px 35px;
+    border-radius: 18px;
   }
 
   .login-ciconix-logo {
-    width: clamp(140px, 40vw, 180px);
-    height: clamp(140px, 40vw, 180px);
-    margin: 0 auto 25px;
+    width: 170px;
+    height: 170px;
+    margin-bottom: 30px;
   }
 
   .login-selection h2 {
-    font-size: clamp(30px, 6vw, 50px);
-    margin-top: clamp(-60px, -15vw, -70px);
-    line-height: 1.2;
+    font-size: 26px;
+    margin-top: -70px;
   }
 
   .login-selection p {
-    font-size: clamp(12px, 3.5vw, 14px);
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .login-form input {
+    padding: 13px 15px;
+    font-size: 14px;
+  }
+
+  #login-btn {
+    padding: 15px 30px;
+    font-size: 15px;
+  }
+}
+
+/* 3. Tablets Portrait (768px and below) */
+@media (max-width: 768px) {
+  .login-page {
+    padding: 16px;
+  }
+
+  .cic-logo {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+  }
+
+  .login-container {
+    width: 85%;
+    min-width: 400px;
+    margin-top: 30px;
+  }
+
+  .login-selection {
+    padding: 0px 45px 32px;
+  }
+
+  .login-ciconix-logo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .login-selection h2 {
+    font-size: 25px;
+    margin-top: -65px;
+  }
+
+  .login-selection p {
+    font-size: 13px;
+    margin-bottom: 26px;
+  }
+
+  .login-form {
+    gap: 9px;
+  }
+
+  .login-form input {
+    padding: 13px 14px;
+  }
+
+  .form_group label {
+    font-size: 13px;
+    margin-bottom: 7px;
+  }
+
+  #login-btn {
+    padding: 14px 28px;
+    margin-top: 13px;
+  }
+
+  .error-message {
+    padding: 13px 15px;
+    margin: 18px 0;
+  }
+}
+
+/* 4. Large Mobile (640px and below) */
+@media (max-width: 640px) {
+  .login-page {
+    padding: 14px;
+  }
+
+  .cic-logo {
+    top: 0px;
+    left: 50%;
+    width: 140px;
+  }
+
+  .login-container {
+    width: 90%;
+    min-width: 350px;
+  }
+
+  .login-selection {
+    padding: 0px 38px 30px;
+    border-radius: 16px;
+  }
+
+  .login-ciconix-logo {
+    width: 155px;
+    height: 155px;
+    margin-bottom: 28px;
+  }
+
+  .login-selection h2 {
+    font-size: 24px;
+    margin-top: -62px;
+  }
+
+  .login-selection p {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .login-form input {
+    padding: 13px 14px;
+    font-size: 14px;
+  }
+
+  .login-form input::placeholder {
+    font-size: 13px;
+  }
+
+  #login-btn {
+    padding: 14px 26px;
+    font-size: 15px;
+  }
+
+  .spinner {
+    width: 15px;
+    height: 15px;
+    margin-right: 7px;
+  }
+}
+
+/* 5. Mobile (480px and below) */
+@media (max-width: 480px) {
+  .login-page {
+    padding: 12px;
+  }
+
+  .cic-logo {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+  }
+
+  .login-container {
+    width: 100%;
+    min-width: 0;
+    max-width: 400px;
+    margin-top: 0px;
+  }
+
+  .login-selection {
+    padding: 0px 28px 28px;
+    border-radius: 16px;
+  }
+
+  .login-ciconix-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 26px;
+  }
+
+  .login-selection h2 {
+    font-size: 23px;
+    margin-top: -60px;
+    margin-bottom: 6px;
+  }
+
+  .login-selection p {
+    font-size: 12px;
     margin-bottom: 24px;
     line-height: 1.4;
   }
 
-  
+  .login-form {
+    gap: 8px;
+  }
 
   .login-form input {
-    width: 100%;
     padding: 13px 14px;
-    font-size: clamp(14px, 4vw, 25px);
-    box-sizing: border-box;
-
+    font-size: 14px;
+    border-radius: 7px;
   }
+
   .login-form input::placeholder {
-    font-size: clamp(13px, 3.5vw, 14px);
-  }
-
-  .form_group label {
-    font-size: clamp(13px, 3.5vw, 14px);
-    line-height: 1.4;
-    margin-bottom: 6px;
-   
+    font-size: 13px;
   }
 
   .form_group {
     width: 100%;
+    margin-bottom: 7px;
+  }
+
+  .form_group label {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 6px;
   }
 
   #login-btn {
-    padding: 15px 28px;
-    font-size: clamp(15px, 4vw, 16px);
+    padding: 14px 26px;
+    font-size: 15px;
     margin-top: 12px;
+    border-radius: 9px;
   }
-
-
-  
 
   .error-message {
     padding: 12px 14px;
     border-radius: 8px;
     margin: 16px 0;
-    font-size: clamp(12px, 3.5vw, 14px);
+    font-size: 13px;
     line-height: 1.4;
   }
 
-
   .spinner {
     width: 14px;
-    height: 14px;  
+    height: 14px;
     margin-right: 6px;
   }
+}
 
+/* 6. Small Mobile (375px and below) */
+@media (max-width: 375px) {
+  .login-page {
+    padding: 10px;
+  }
 
+  .cic-logo {
+    top: 12px;
+    width: 120px;
+  }
+
+  .login-container {
+    max-width: 340px;
+  }
+
+  .login-selection {
+    padding: 0px 24px 26px;
+  }
+
+  .login-ciconix-logo {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 24px;
+  }
+
+  .login-selection h2 {
+    font-size: 22px;
+    margin-top: -58px;
+  }
+
+  .login-selection p {
+    font-size: 12px;
+    margin-bottom: 22px;
+  }
+
+  .login-form input {
+    padding: 12px 13px;
+    font-size: 13px;
+  }
+
+  .login-form input::placeholder {
+    font-size: 12px;
+  }
+
+  .form_group label {
+    font-size: 12px;
+  }
+
+  #login-btn {
+    padding: 13px 24px;
+    font-size: 14px;
+  }
+
+  .error-message {
+    padding: 11px 13px;
+    font-size: 12px;
+  }
+
+  .spinner {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+  }
+}
+
+/* 7. Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .login-page {
+    padding: 8px;
+  }
+
+  .cic-logo {
+    top: 10px;
+    width: 110px;
+  }
+
+  .login-container {
+    max-width: 320px;
+  }
+
+  .login-selection {
+    padding: 0px 20px 24px;
+    border-radius: 14px;
+  }
+
+  .login-ciconix-logo {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 22px;
+  }
+
+  .login-selection h2 {
+    font-size: 21px;
+    margin-top: -55px;
+  }
+
+  .login-selection p {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+
+  .login-form input {
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  .login-form input::placeholder {
+    font-size: 12px;
+  }
+
+  .form_group label {
+    font-size: 12px;
+  }
+
+  #login-btn {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .error-message {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
 }

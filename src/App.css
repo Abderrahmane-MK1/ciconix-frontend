@@ -2,25 +2,51 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
   text-align: center;
+  overflow-x: hidden;
 }
 
-
-@media (max-width: 400px) {
-  /* mobile styles */
-   #root {
+body {
   margin: 0;
   padding: 0;
-  width: 402px;
-  text-align: center;
+  width: 100%;
+  overflow-x: hidden;
 }
-}
-@media (min-width:481px) and (max-width:1024px){
+
+/* Mobile styles (up to 480px) */
+@media (max-width: 480px) {
   #root {
-  margin: 0;
-  padding: 0;
-  width: 1124px;
-  text-align: center;
-}
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100vw;
+    text-align: center;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
 }
 
+/* Tablets (481px to 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+  #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+}

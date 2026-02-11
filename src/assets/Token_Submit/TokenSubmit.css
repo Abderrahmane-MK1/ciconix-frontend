@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .header-section {
@@ -50,7 +51,6 @@
   line-height: 100%;
   letter-spacing: 0px;
   max-width: 400px;
-  
 }
 
 .points-label {
@@ -72,6 +72,7 @@
   padding: 30px 50px;
   width: 700px;
   margin-bottom: 100px;
+  box-sizing: border-box;
 }
 
 .form-group {
@@ -98,6 +99,8 @@
   line-height: 100%;
   letter-spacing: 0%;
   background-color: rgba(249, 228, 192, 0.1);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .token-input:focus {
@@ -173,6 +176,7 @@
     border-radius: 22px;
     padding: 25px;
     margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 .stats-header {
@@ -262,6 +266,7 @@
     border-radius: 22px;
     padding: 25px;
     margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 .history-header {
@@ -359,7 +364,6 @@
     border: 1px solid rgba(113, 16, 22, 1) ;
 }
 
-
 .format-hint code {
     background: rgba(113, 16, 22, 0.2);
     padding: 2px 8px;
@@ -374,465 +378,649 @@
     margin-top: 5px;
 }
 
-/* Responsive */
+/* ============================================ */
+/* RESPONSIVE STYLES */
+/* ============================================ */
+
+/* Large Desktops (1200px and below) */
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 80px 28px;
+  }
+
+  .header-section {
+    margin-top: 45px;
+    margin-bottom: 60px;
+  }
+
+  .header-section h2 {
+    font-size: 58px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .submit-form {
+    width: 650px;
+    padding: 28px 45px;
+  }
+}
+
+/* Tablets Landscape (1024px and below) */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 70px 25px;
+  }
+
+  .header-section {
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .header-section h2 {
+    font-size: 52px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 19px;
+  }
+
+  .points-card {
+    padding: 14px 54px;
+    font-size: 22px;
+  }
+
+  .submit-form {
+    width: 600px;
+    padding: 26px 40px;
+  }
+
+  .form-label {
+    font-size: 19px;
+  }
+
+  .stats-card {
+    padding: 22px;
+  }
+
+  .stats-header h3 {
+    font-size: 22px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+  }
+
+  .stat-value {
+    font-size: 26px;
+  }
+
+  .history-section {
+    padding: 22px;
+  }
+
+  .history-header h3 {
+    font-size: 20px;
+  }
+}
+
+/* Tablets Portrait (768px and below) */
 @media (max-width: 768px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .history-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .history-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .stat-item {
-        padding: 15px;
-    }
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-
- @media (max-width: 400px){
   .main-content {
-    margin-top: 15px;
-    min-height: 100vh;
-    background: rgba(36, 14, 16, 1);
-    padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-   
-    
-    margin-left: -25px;
+    padding: 60px 22px;
   }
 
   .header-section {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 45px;
   }
 
   .header-section h2 {
-    color: rgba(249, 228, 192, 1);
-    font-size: clamp(32px, 10vw, 44px);
-    font-weight: 400;
+    font-size: 46px;
     line-height: 1.2;
-    letter-spacing: 0px;
-    font-family: 'IM Fell English', serif;
-    margin-bottom: 20px;
   }
 
   .subtitle {
-    color: rgba(249, 228, 192, 1);
-    font-family: 'IM Fell English', serif;
-    font-weight: 400;
-    font-size: clamp(16px, 5vw, 20px);
-    line-height: 1.4;
-    letter-spacing: 0px;
-  }
-
-  .points-section {
-    margin-bottom: 30px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    font-size: 18px;
+    line-height: 1.3;
   }
 
   .points-card {
-    background: rgba(113, 16, 22, 1);
-    padding: 16px 32px;
-    border-radius: 18px;
-    font-size: clamp(20px, 5.5vw, 22px);
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0px;
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .points-label {
-    color: white;
-  }
-
-  .points-value {
-    color: rgba(249, 228, 192, 1);
-    margin-left: 8px;
+    padding: 12px 44px;
+    font-size: 20px;
+    max-width: 350px;
   }
 
   .submit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    border: 1px solid rgba(113, 16, 22, 1);
-    background: rgba(27, 11, 13, 1);
-    border-radius: 18px;
-    padding: 24px 20px;
     width: 100%;
-    max-width: 100%;
-    margin-bottom: 50px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    max-width: 600px;
+    padding: 24px 35px;
+    margin-bottom: 80px;
   }
 
   .form-label {
-    font-weight: 700;
-    font-size: clamp(17px, 4.5vw, 19px);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    letter-spacing: 0px;
-    color: white;
+    font-size: 18px;
+  }
+
+  .token-input {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .format-hint {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    font-size: 19px;
+    padding: 16px;
+  }
+
+  .stats-card {
+    padding: 20px;
+  }
+
+  .stats-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-item {
+    padding: 18px;
+  }
+
+  .stat-icon {
+    font-size: 28px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .history-section {
+    padding: 20px;
+  }
+
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .history-item {
+    padding: 13px;
+  }
+}
+
+/* Mobile Large (680px and below) */
+@media (max-width: 680px) {
+  .main-content {
+    padding: 50px 20px;
+  }
+
+  .header-section {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .header-section h2 {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 17px;
+  }
+
+  .points-card {
+    padding: 12px 40px;
+    font-size: 19px;
+  }
+
+  .submit-form {
+    padding: 22px 30px;
+    gap: 14px;
+  }
+
+  .form-label {
+    font-size: 17px;
   }
 
   .token-input {
     padding: 14px;
-    border: 2px solid rgba(113, 16, 22, 1);
-    border-radius: 12px;
-    font-size: clamp(14px, 3.8vw, 15px);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    letter-spacing: 0px;
-    background-color: rgba(249, 228, 192, 0.1);
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .token-input::placeholder {
-    color: rgba(249, 228, 192, 0.5);
-  }
-
-  .token-input:focus {
-    outline: none;
-    border-color: rgb(163, 22, 32);
-    background-color: rgba(249, 228, 192, 0.15);
-    box-shadow: 0 0 0 2px rgba(163, 22, 32, 0.2);
+    font-size: 13.5px;
   }
 
   .format-hint {
-    color: rgba(255, 255, 255, 0.87);
-    font-size: clamp(12px, 3.5vw, 14px);
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    letter-spacing: 0px;
-  }
-
-  .error-message {
-    background: rgba(249, 228, 192, 0.1);
-    color: #c33;
-    padding: 14px;
-    border-radius: 12px;
-    border-left: 4px solid rgba(113, 16, 22, 1);
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(13px, 3.8vw, 15px);
-    line-height: 1.4;
-  }
-
-  .success-message {
-    background: rgba(113, 16, 22, 0.2);
-    color: rgba(249, 228, 192, 0.9);
-    padding: 14px;
-    border-radius: 12px;
-    border-left: 4px solid rgba(113, 16, 22, 1);
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(14px, 4vw, 16px);
-    line-height: 1.4;
-    animation: slideIn 0.3s ease;
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    font-size: 13px;
   }
 
   .submit-btn {
-    background: rgba(113, 16, 22, 1);
-    color: white;
-    border: none;
+    font-size: 18px;
+    padding: 15px;
+    margin-top: 16px;
+  }
+
+  .stats-card {
+    padding: 18px;
+  }
+
+  .stats-header h3 {
+    font-size: 20px;
+  }
+
+  .stat-item {
     padding: 16px;
-    border-radius: 12px;
-    font-size: clamp(18px, 5vw, 20px);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0px;
-    cursor: pointer;
-    margin-top: 14px;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-    width: 100%;
+    gap: 12px;
   }
 
-  .submit-btn:hover:not(:disabled) {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(113, 16, 22, 0.4);
+  .stat-icon {
+    font-size: 26px;
+    min-width: 35px;
   }
 
-  .submit-btn:active:not(:disabled) {
-    transform: translateY(0);
+  .stat-label {
+    font-size: 11px;
   }
 
-  .submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  .stat-value {
+    font-size: 22px;
   }
 
-  .spinner {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s linear infinite;
+  .history-section {
+    padding: 18px;
   }
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
+  .history-header h3 {
+    font-size: 19px;
+  }
+
+  .history-count {
+    font-size: 13px;
+  }
+
+  .history-item {
+    padding: 12px;
+  }
+
+  .points-badge {
+    font-size: 15px;
+    padding: 5px 12px;
+  }
+
+  .history-time {
+    font-size: 13px;
   }
 }
 
-
- @media (min-width: 401px) and (max-width:480px){
+/* Mobile Medium (480px and below) */
+@media (max-width: 480px) {
   .main-content {
-    min-height: 100vh;
-    margin-top: 15px;
-    background: rgba(36, 14, 16, 1);
-    padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 450px;
-    
-    
+    padding: 40px 18px;
   }
 
   .header-section {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 35px;
   }
 
   .header-section h2 {
-    color: rgba(249, 228, 192, 1);
-    font-size: clamp(32px, 10vw, 44px);
-    font-weight: 400;
+    font-size: 36px;
     line-height: 1.2;
-    letter-spacing: 0px;
-    font-family: 'IM Fell English', serif;
+    margin-bottom: 25px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .points-section {
+    margin-bottom: 35px;
+  }
+
+  .points-card {
+    padding: 12px 32px;
+    font-size: 18px;
+    max-width: 300px;
+  }
+
+  .submit-form {
+    padding: 20px 24px;
+    gap: 14px;
+    margin-bottom: 60px;
+    border-radius: 18px;
+  }
+
+  .form-group {
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .token-input {
+    padding: 13px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  .format-hint {
+    font-size: 12.5px;
+    line-height: 1.3;
+  }
+
+  .hint-small {
+    font-size: 12px;
+  }
+
+  .error-message,
+  .success-message {
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .submit-btn {
+    font-size: 17px;
+    padding: 14px;
+    margin-top: 14px;
+    border-radius: 12px;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border-width: 2.5px;
+  }
+
+  .stats-card {
+    padding: 16px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+  }
+
+  .stats-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .stats-header h3 {
+    font-size: 19px;
+    gap: 8px;
+  }
+
+  .stats-grid {
+    gap: 14px;
+  }
+
+  .stat-item {
+    padding: 14px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .stat-icon {
+    font-size: 24px;
+    min-width: 32px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .history-section {
+    padding: 16px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+  }
+
+  .history-header {
+    margin-bottom: 16px;
+  }
+
+  .history-header h3 {
+    font-size: 18px;
+    gap: 8px;
+  }
+
+  .history-count {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .history-list {
+    gap: 10px;
+    max-height: 250px;
+  }
+
+  .history-item {
+    padding: 11px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .points-badge {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  .history-time {
+    font-size: 12px;
+  }
+
+  .empty-history {
+    font-size: 13px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+}
+
+/* Mobile Small (375px and below) */
+@media (max-width: 375px) {
+  .main-content {
+    padding: 35px 16px;
+  }
+
+  .header-section {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .header-section h2 {
+    font-size: 32px;
+    line-height: 1.2;
     margin-bottom: 20px;
   }
 
   .subtitle {
-    color: rgba(249, 228, 192, 1);
-    font-family: 'IM Fell English', serif;
-    font-weight: 400;
-    font-size: clamp(16px, 5vw, 20px);
-    line-height: 1.4;
-    letter-spacing: 0px;
+    font-size: 15px;
   }
 
   .points-section {
     margin-bottom: 30px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
   }
 
   .points-card {
-    background: rgba(113, 16, 22, 1);
-    padding: 16px 32px;
-    border-radius: 18px;
-    font-size: clamp(20px, 5.5vw, 22px);
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0px;
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .points-label {
-    color: white;
-  }
-
-  .points-value {
-    color: rgba(249, 228, 192, 1);
-    margin-left: 8px;
+    padding: 10px 28px;
+    font-size: 17px;
+    max-width: 280px;
   }
 
   .submit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    border: 1px solid rgba(113, 16, 22, 1);
-    background: rgba(27, 11, 13, 1);
-    border-radius: 18px;
-    padding: 24px 20px;
-    width: 100%;
-    max-width: 100%;
+    padding: 18px 20px;
+    gap: 12px;
     margin-bottom: 50px;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
   .form-label {
-    font-weight: 700;
-    font-size: clamp(17px, 4.5vw, 19px);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    letter-spacing: 0px;
-    color: white;
+    font-size: 15px;
+    line-height: 20px;
   }
 
   .token-input {
-    padding: 14px;
-    border: 2px solid rgba(113, 16, 22, 1);
-    border-radius: 12px;
-    font-size: clamp(14px, 3.8vw, 15px);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    letter-spacing: 0px;
-    background-color: rgba(249, 228, 192, 0.1);
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .token-input::placeholder {
-    color: rgba(249, 228, 192, 0.5);
-  }
-
-  .token-input:focus {
-    outline: none;
-    border-color: rgb(163, 22, 32);
-    background-color: rgba(249, 228, 192, 0.15);
-    box-shadow: 0 0 0 2px rgba(163, 22, 32, 0.2);
+    padding: 12px;
+    font-size: 12.5px;
   }
 
   .format-hint {
-    color: rgba(255, 255, 255, 0.87);
-    font-size: clamp(12px, 3.5vw, 14px);
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.4;
-    letter-spacing: 0px;
+    font-size: 12px;
   }
 
-  .error-message {
-    background: rgba(249, 228, 192, 0.1);
-    color: #c33;
-    padding: 14px;
-    border-radius: 12px;
-    border-left: 4px solid rgba(113, 16, 22, 1);
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(13px, 3.8vw, 15px);
-    line-height: 1.4;
+  .hint-small {
+    font-size: 11px;
   }
 
+  .error-message,
   .success-message {
-    background: rgba(113, 16, 22, 0.2);
-    color: rgba(249, 228, 192, 0.9);
-    padding: 14px;
-    border-radius: 12px;
-    border-left: 4px solid rgba(113, 16, 22, 1);
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(14px, 4vw, 16px);
-    line-height: 1.4;
-    animation: slideIn 0.3s ease;
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    padding: 12px;
+    font-size: 13px;
   }
 
   .submit-btn {
-    background: rgba(113, 16, 22, 1);
-    color: white;
-    border: none;
-    padding: 16px;
-    border-radius: 12px;
-    font-size: clamp(18px, 5vw, 20px);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0px;
-    cursor: pointer;
-    margin-top: 14px;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
-    width: 100%;
+    font-size: 16px;
+    padding: 13px;
+    margin-top: 12px;
   }
 
-  .submit-btn:hover:not(:disabled) {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(113, 16, 22, 0.4);
+  .stats-card {
+    padding: 14px;
+    margin-bottom: 22px;
   }
 
-  .submit-btn:active:not(:disabled) {
-    transform: translateY(0);
+  .stats-header h3 {
+    font-size: 18px;
   }
 
-  .submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  .stats-grid {
+    gap: 12px;
   }
 
-  .spinner {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s linear infinite;
+  .stat-item {
+    padding: 12px;
   }
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
+  .stat-icon {
+    font-size: 22px;
+    min-width: 30px;
+  }
+
+  .stat-value {
+    font-size: 19px;
+  }
+
+  .history-section {
+    padding: 14px;
+    margin-bottom: 22px;
+  }
+
+  .history-header h3 {
+    font-size: 17px;
+  }
+
+  .history-count {
+    font-size: 11px;
+  }
+
+  .history-list {
+    max-height: 220px;
+  }
+
+  .history-item {
+    padding: 10px;
+  }
+
+  .points-badge {
+    font-size: 13px;
+  }
+
+  .history-time {
+    font-size: 11px;
+  }
+
+  .format-hint code {
+    padding: 2px 6px;
+    font-size: 11px;
+  }
+}
+
+/* Mobile Extra Small (360px and below) */
+@media (max-width: 360px) {
+  .main-content {
+    padding: 30px 14px;
+  }
+
+  .header-section h2 {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .points-card {
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+
+  .submit-form {
+    padding: 16px 18px;
+  }
+
+  .form-label {
+    font-size: 14px;
+  }
+
+  .token-input {
+    padding: 11px;
+    font-size: 12px;
+  }
+
+  .format-hint {
+    font-size: 11px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .stats-card {
+    padding: 12px;
+  }
+
+  .stats-header h3 {
+    font-size: 17px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .history-section {
+    padding: 12px;
+  }
+
+  .history-header h3 {
+    font-size: 16px;
   }
 }
